@@ -1,0 +1,11 @@
+.content{
+    margin: 3%;
+    width: 80%;
+    display: block;
+    /* justify-content: center; */
+}
+
+.nav-item a{ 
+    text-decoration:none;
+    color: #ffffff;
+}
