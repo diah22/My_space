@@ -1,4 +1,25 @@
 /* css for button */
+.btn-outline{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    display: inline-block;
+    font-size: 0.9em;
+    padding: -3em 2em;
+    /* margin-top: 100px; */
+    /* margin-bottom: 60px; */
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #ffffff;
+    color: rgb(26, 121, 165);
+    border-radius: 4px;
+    border: 1px solid #000;
+    cursor: pointer;
+    height: 30px;
+    text-align: center;
+}
+.btn-outline:hover{
+    background-color: #000;
+    color: #fff;
+}
 .bubbly-button{
     font-family: 'Helvetica', 'Arial', sans-serif;
     display: inline-block;
@@ -8,14 +29,16 @@
     margin-bottom: 60px;
     -webkit-appearance: none;
     appearance: none;
-    background-color: #ff0081;
+    background-color: #fcc900;
     color: #fff;
     border-radius: 4px;
     border: none;
     cursor: pointer;
     position: relative;
     transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+    /* box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5); */
+    /* box-shadow: 0 2px 25px #f5da4e; */
+    box-shadow: 0 2px 25px #f5cb48;
 }
 
 .bubbly-button:focus {
@@ -28,6 +51,41 @@
     box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
 }
 
+.btn-rounded{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    display: inline-block;
+    font-size: 1em;
+    /* margin-top: 100px;
+    margin-bottom: 60px; */
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #ff0081;
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    /* box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5); */
+    /* box-shadow: 0 2px 25px #f5da4e; */
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+.btn-rounded:focus{
+    outline: 0;
+}
+
+.btn-rounded:active{
+    transform: scale(0.9);
+    background-color: darken(#ff0081, 5%);
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+
+.btn-size-icon{
+    width: 40px;
+    height: 40px;
+}
+
+
 .btn-icon{
     border-radius: 50%;
     padding: 10px;
@@ -39,8 +97,6 @@
     cursor: pointer;
     transition: 1s ease-in-out;
     background: #4F95DA;
-    
-
 }
 
 .btn {
@@ -126,11 +182,11 @@
 
 }
 #exemple .modal-content::-webkit-scrollbar{
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
 }
 #exemple .modal-content::-webkit-scrollbar-thumb{
-    background: black;
+    background: darkgrey;
     border-radius: 10px;
 }
 #exemple .modal-content::-webkit-scrollbar-track{
@@ -165,7 +221,6 @@
 
 table {
     border-collapse: collapse;
-    width: 100%;  
 }
 
 th{
@@ -191,19 +246,35 @@ td, th {
 .card-header{
     width: 100%;
     height: 60px;
-    background-color: rgba(240, 228, 228, 0.808);
+    background-color: #30bda6;
     display: flex;
     justify-content: center;
 }
 
+.card-content {
+    padding: 10px;
+}
+
 .card-footer{
-    background-color: rgba(240, 228, 228, 0.808);
+    background-color: #ffffff;
     display: flex;
-    justify-content: end;
-    width: 15%;
+    justify-content: space-around;
+    width: 94%;
     bottom: 0;
+    border-top: 1px solid #aaaaaa;
+    margin: 10px;
 }
 /* row */
 .row{
     display: flex;
+}
+
+/* col */
+.col{
+    display: inline-flex;
+}
+/* image */
+.img-icon{
+    width: 40px;
+    height: 40px;
 }

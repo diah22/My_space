@@ -6,7 +6,7 @@ const nextYear = new Date().getFullYear() + 1;
     });
 
     const currentDateElement = document.getElementById('current-date');
-    currentDateElement.textContent = myCalender.value;
+    //currentDateElement.textContent = myCalender.value;
 
     const currentDayElement = document.getElementById('current-day');
     currentDayElement.textContent = myCalender.value.getDay();

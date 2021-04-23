@@ -3,44 +3,6 @@ body{
     font-size: 16px;
     margin: 0;
 }
-ul.topnav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #cac4c4;
-}
-
-ul.topnav li {float: left;}
-
-ul.topnav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul.topnav li a:hover:not(.active) {background-color: rgb(182, 178, 178);}
-
-ul.topnav li a.active {background-color: #4CAF50;}
-
-ul.topnav li.right {float: right;}
-
-@media screen and (max-width: 600px) {
-  ul.topnav li.right, 
-  ul.topnav li {float: none;}
-}
-.nav-item{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #55c8eac2;
-    width: 100%;
-    height: 100px;
-    color: #ffffff;
-}
-
 .content .content-header-left{
   width: 100%;
   display: flex;
@@ -54,9 +16,22 @@ ul.topnav li.right {float: right;}
 
 
 .content .content-body{
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+.content-body.no-task{
+  /* display: block;
+  margin-left: 40%;
+  padding: 20px; */
+  display: block;
+  margin-left: 40%;
+}
+
+.task-bgimage{
+  margin-left: 55px;
+  opacity: 0.6;
 }
 
 /* Add task */
@@ -89,7 +64,7 @@ ul.topnav li.right {float: right;}
 }
 
 .table .row-data{
-  padding: 15px;
+  padding: 8px;
 }
 
 #state{
@@ -99,8 +74,153 @@ ul.topnav li.right {float: right;}
   display: flex;
   justify-content: flex-end;
 }
+.task-content{
+  width: 100%;
+}
 
+.table{
+  width: 100%;
+  margin-top: 15px;
+}
 
+.btn-state-icon{
+  background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+  background-image: linear-gradient(top, #f4f1ee, #fff);
+  border-radius: 50%;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgb(204 198 197 / 50%);
+  height: 50px;
+  margin: 0 30px 30px 0;
+  position: relative;
+  width: 50px;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.btn-state-icon:after{
+  color:#e9e6e4;
+  content: "";
+  display: block;
+  font-size: 30px;
+  height: 30px;
+  text-decoration: none;
+  text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+  position: absolute;
+  width: 30px;
+}
+
+.flower:after{
+  content: "✿";
+  left: 30%;
+  top: 15%;
+  font-size: 25px;
+}
+
+.tick:after{
+  content: "✔";
+  left: 30%;
+  top: 15%;
+  font-size: 25px;
+}
+
+.cross:after{
+  content: "✖";
+  left: 30%;
+  top: 15%;
+  font-size: 25px;
+}
+
+.btn-state-icon:hover{
+  background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+  background-image: linear-gradient(top, #fff, #f4f1ee);
+  color:#0088cc;
+}
+
+.flower:hover:after{
+  color:#f99e4e;
+  text-shadow:0px 0px 6px #f99e4e;
+}
+
+.tick:hover:after{
+  color:#83d244;
+  text-shadow:0px 0px 6px #83d244;
+}
+
+.cross:hover:after{
+  color:#eb2f2f;
+  text-shadow:0px 0px 6px #eb2f2f;
+}
+
+.flower:active{
+  color:#f99e4e;
+  text-shadow:0px 0px 6px #f99e4e;
+}
+.tick:active{
+  color:#83d244;
+  text-shadow:0px 0px 6px #83d244;
+}
+.cross:active{
+  color:#eb2f2f;
+  text-shadow: 0px 0px 6px #eb2f2f;
+}
+
+.btn-state-icon:active{
+  background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+  background-image: linear-gradient(top, #efedec, #f7f4f4);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+}
+
+.btn-state-icon:active:after{
+  color:#dbd2d2;
+  text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-outline.card-footer-content{
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.input.modal-content-container{
+  margin-top: 20px;
+}
+/* ---------------------------------------------- PROJECT -----------------------------------------------------------*/
+.col.col-end {
+  margin-left: 55%;
+}
+
+.add-project{
+  height: auto;
+  position: absolute;
+  transition: all 1s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  top: -450px;
+  margin-left: 150px;
+  width: 70%;
+  z-index:1;
+}
+.add-project + h2{
+  text-align: center;
+}
+.container{
+  height:auto;
+}
+.toggle{
+  transition: margin 1s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  margin-top: 390px;
+}
+
+.card-header > h5{
+  color: #fff;
+  font-size: 1.1em;
+}
+button.bubbly-button.btn-submit-project {
+  margin-top: 15px;
+  margin-left: 35%;
+}
 /* ----------------------------------------------   EVENT -----------------------------------------------------------*/
 
 #myCalendarWrapper {

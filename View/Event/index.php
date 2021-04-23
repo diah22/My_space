@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +23,10 @@
                </div>
             </div>
         </div>
-    </div>  
+    </div> 
+    <?php include('modal/add.event.php'); ?> 
 </body>
 <script src="../../assets/js/CalendarPicker.js"></script>
 <script src="../../assets/js/calendar.js"></script>
+<script src="../../assets/js/modal.js"></script>
 </html>

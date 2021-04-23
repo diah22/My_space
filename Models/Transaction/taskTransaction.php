@@ -27,5 +27,14 @@ class TaskTransaction
         return $donnees;
     }
 
+    
+    public function updateTask($id, $act){
+        $req= $this->_db->prepare("UPDATE task SET statut=:statut WHERE id=:id");
+        $req->execute(array('statut'=> $act,
+                                'id' => $id)) or die(print_r($req->errorInfo(), true));
+        
+    }
+
+
 }
 ?>

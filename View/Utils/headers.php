@@ -1,8 +1,19 @@
+<div class="dropdownBackground">
+  <span class="arrow"></span>
+</div>
 <ul class="topnav">
   <!-- <li><a class="active" href="#home">Home</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li> -->
-  <li class="right"><a href="#about">About</a></li>
+  <li class="right"><img class="img-icon" src="../../assets/icon/user1.png"></li>
+  <div class="dropdown dropdown1">
+    <div class="bio">
+      <img src="">
+      <p>Je suis en deuxième annee en Informatique à l'ESTI suivant le 
+        parcours developpement et intégration and i really love to code
+      </p>
+    </div>
+  </div>
 </ul>
 
 <div class="nav-item">

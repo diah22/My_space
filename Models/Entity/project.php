@@ -1,5 +1,5 @@
 <?php
-class Task
+class Project
 {
     private $_nom;
     private $_statut;
@@ -23,11 +23,11 @@ class Task
     }
 
     public function getDescri(){
-        return $this->_statut;
+        return $this->_descri;
     }
 
     public function setDescri($descri){
-        $this->_descri= $descri;
+        $this->_descri= trim($descri);
     }
 
     public function getUser(){

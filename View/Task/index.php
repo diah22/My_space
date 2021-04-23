@@ -31,8 +31,13 @@
     <?php
         if($tasks == null || $tasks == ""){
             ?>
-            <p>No task for today . Do you want to add new task?</p><br>
-            <button class="bubbly-button" onclick="exemple()">Add task</button>
+            <div class="content-body no-task">
+                <p>No task for today . Do you want to add new task?</p><br>
+                
+                <img alt="task" class="task-bgimage" src="../../assets/images/task-1.jpg"> 
+
+                <button class="bubbly-button" onclick="showmodal()">Add task</button>
+            </div>
             <?php
         }
         else{
@@ -50,9 +55,9 @@
                                 <td class="row-data"><?php echo $task['contenu']?></td>
                                 <td class="row-data">
                                     <div class="state-content">
-                                        <a class="link-task-update" href='#'>En cours</a>
-                                        <a class="link-task-update" href='#'>Annuler</a>
-                                        <a class="link-task-update" href='#'>Terminer</a>
+                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="EC"' class="btn-state-icon tick"></a>
+                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="N"' class="btn-state-icon cross"></a>
+                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="O"' class="btn-state-icon flower"></a>
                                     </div>
                                 </td>
                             </tr>
@@ -70,8 +75,8 @@
 	<div id="exemple">
         <div class="modal-content">
             <a onclick=exemple()><span class="close">&times;</span></a>
-            <input type="text" id="item" class="input" placeholder="Doing ... ">
-            <button class="btn-icon" onclick="addSingleTodo()">+</button>
+            <input type="text" id="item" class="input modal-content-container" placeholder="Doing ... ">
+            <button class="btn-rounded btn-size-icon" onclick="addSingleTodo()">+</button>
             <div class="list-todo">
                 <ul class="list-item">
 
@@ -89,5 +94,6 @@
 <script src="../../assets/js/modal.js"></script>
 <script src="../../assets/js/default.js"></script>
 <script src="../../assets/js/index.js"></script>
+<script src="../../assets/js/utils.js"></script>
 </html>
 

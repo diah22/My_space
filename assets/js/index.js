@@ -63,6 +63,17 @@ function renderTask(data){
   content.innerHTML= data;
 }
 
+function btnFlower(){
+  this.style.color= '#f99e4e';
+  this.style.textShadow= '0px 0px 6px #f99e4e';
+}
+
 
 const todoButton= document.getElementById('submitTodo');
 todoButton.addEventListener('click', addItem);
+
+const btnFlow= document.querySelector('.flower');
+
+btnFlow.addEventListener('click', btnFlower);
+
+/** --------------------------------------------- PROJECT -------------------------------------------------------------- */
