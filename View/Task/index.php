@@ -24,7 +24,7 @@
     </div>
     <div class="content-header-right">
         <input type="date" class="input-20" onChange="searchtask(this.value)">
-        <button class="btn">i</button>
+        <button class="btn"><img class="icon" src="../../assets/icon/search-1.png"></button>
     </div>
 
     <div class="content-body">
@@ -46,18 +46,18 @@
                 <table class="table">
                     <tr>
                         <th>Tâches</th>
-                        <th id="state">Statut</th>
+                        <th id="state" class="state">Statut</th>
                     </tr>
                     <?php
                             foreach($tasks as $task){
                             ?>
                             <tr>
-                                <td class="row-data"><?php echo $task['contenu']?></td>
-                                <td class="row-data">
+                                <td class="row-data task"><?php echo $task['contenu']?></td>
+                                <td class="row-data state">
                                     <div class="state-content">
-                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="EC"' class="btn-state-icon tick"></a>
-                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="N"' class="btn-state-icon cross"></a>
-                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="O"' class="btn-state-icon flower"></a>
+                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="EC"' class="checking tick">✔</a>
+                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="N"' class="checking cross">✖</a>
+                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="O"' class="checking loading">✿</a>
                                     </div>
                                 </td>
                             </tr>
@@ -74,7 +74,7 @@
 
 	<div id="exemple">
         <div class="modal-content">
-            <a onclick=exemple()><span class="close">&times;</span></a>
+            <a onclick=closemodal()><span class="close">&times;</span></a>
             <input type="text" id="item" class="input modal-content-container" placeholder="Doing ... ">
             <button class="btn-rounded btn-size-icon" onclick="addSingleTodo()">+</button>
             <div class="list-todo">

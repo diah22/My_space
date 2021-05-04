@@ -1,6 +1,4 @@
-<div class="dropdownBackground">
-  <span class="arrow"></span>
-</div>
+
 <ul class="topnav">
   <!-- <li><a class="active" href="#home">Home</a></li>
   <li><a href="#news">News</a></li>

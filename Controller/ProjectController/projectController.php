@@ -35,5 +35,12 @@
             // die;
             // print_r($donnes);
         }
+
+        public function getProjectById($id){
+            $bdd= $this->_bdd;
+            $projectT= new ProjectTransaction($bdd);
+            $donnes= $projectT->getProjectById($id);
+            return $donnes;
+        }
     }
 ?>

@@ -48,7 +48,7 @@
                         <div class="card-footer">
                             
                         <p><span><?php echo Utils::getState($donnee['statut']); ?></span></p>
-                            <a class="btn-outline card-footer-content">More details</a>
+                            <a href="details.php?id=<?php echo $donnee['id'];?>" class="btn-outline card-footer-content">More details</a>
                         </div>
                     </div>
             
@@ -66,7 +66,7 @@
                 <label for="title">Title</label><br>
                 <input type="text" name="title" class="input"><br>
                 <label for="title">Description</label><br>
-                <textarea class="input" name="descri" col="40" >
+                <textarea class="input" name="descri" cols=40 rows=6 >
 
                 </textarea><br>
                 <label for="title">Deadline</label><br>

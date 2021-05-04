@@ -4,7 +4,7 @@ ul.topnav {
     padding: 5px;
     overflow: hidden;
     background-color: #0e618f;
-    z-index: 3;
+    z-index: 999;
 
 }
 

@@ -1,7 +1,7 @@
-
+const xhr= getXMLHttpRequest();
 const listI= document.querySelector('.list-item');
 let todoItem = {
-    items: [],
+    items: [], //tableau contenant all items
     addItem: function(item){
       this.items.push(item);
       return this;
@@ -21,13 +21,22 @@ ul.addEventListener('click', function(e){
   }
 });
 
+const lists= document.querySelectorAll('li');
+
+lists.forEach(list=>{
+  list.addEventListener('click', function(){
+    console.log(lists);
+  })
+})
+
+
 function addSingleTodo(){
     const li= document.createElement('li');
     const item= document.getElementById('item').value;
     todoItem.addItem(item);
     arrayItem= todoItem.items;
     arrayItem.forEach(array=>{
-        li.innerHTML= ` ${array} `;
+        li.innerHTML= `<span class="task-tick"> ✔ </span> ${array} `;
         listI.appendChild(li);
     })
 
@@ -36,7 +45,6 @@ function addSingleTodo(){
 
 
 function addItem(){
-	const xhr= getXMLHttpRequest();
 	xhr.onreadystatechange= function(){
 		if(xhr.readyState==4 &&(xhr.status==200 || xhr.status==0)){
       alert(xhr.responseText);
@@ -56,11 +64,12 @@ function searchtask(val){
 	};
 	xhr.open("GET", "../../Controller/TaskController/getTask.php?date="+ sdate, true);
 	xhr.send(null);
+  alert('ok');
+  console.log(val);
 }
 
 function renderTask(data){
-  const content= document.querySelector('.content-body');
-  content.innerHTML= data;
+  console.log(data);
 }
 
 function btnFlower(){
@@ -74,6 +83,6 @@ todoButton.addEventListener('click', addItem);
 
 const btnFlow= document.querySelector('.flower');
 
-btnFlow.addEventListener('click', btnFlower);
+// btnFlow.addEventListener('click', btnFlower);
 
 /** --------------------------------------------- PROJECT -------------------------------------------------------------- */

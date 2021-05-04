@@ -27,6 +27,11 @@ class ProjectTransaction
         $donnees= $req->fetchAll(PDO::FETCH_ASSOC);
         return $donnees;
     }
+    public function getProjectById($id){
+        $req= $this->_db->query("SELECT * FROM project WHERE id=".$id); // never forget to fetch data
+        $donnees= $req->fetch();
+        return $donnees;
+    }
 
     public function getAllProject(){
         $req= $this->_db->query('SELECT * FROM project ORDER BY id DESC LIMIT 0,3');

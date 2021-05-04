@@ -13,7 +13,6 @@ class TaskController
      }
 
      public function getAllTaskByDate($date){
-
       $bdd= $this->_bdd;
       $taskT= new TaskTransaction($bdd);
       $donnees= $taskT->getTaskByDate($date);
@@ -25,6 +24,7 @@ class TaskController
     $date= $_GET['date'];
     $taskT= new TaskController();
     $donnees= $taskT->getAllTaskByDate($date);
+    return $donnees;
     // searching a way to return php page in pur php
  }
 
