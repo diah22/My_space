@@ -21,11 +21,15 @@ class TaskController
  }
 
  if(isset($_GET['date'])){
+    $html="";
     $date= $_GET['date'];
     $taskT= new TaskController();
     $donnees= $taskT->getAllTaskByDate($date);
-    return $donnees;
+    foreach($donnees as $donnee){
+      $html= "<p>".$donnee['contenu']."</p>";
+    }
     // searching a way to return php page in pur php
+    return $html;
  }
 
  

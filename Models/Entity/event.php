@@ -23,11 +23,11 @@ class Event
     }
 
     public function getDescri(){
-        return $this->_statut;
+        return $this->_descri;
     }
 
     public function setDescri($descri){
-        $this->_descri= $descri;
+        $this->_descri= trim($descri);
     }
 
     public function getUser(){

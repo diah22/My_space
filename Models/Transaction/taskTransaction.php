@@ -22,7 +22,7 @@ class TaskTransaction
     }
 
     public function getTaskByDate($date){
-        $req= $this->_db->query("SELECT * FROM task WHERE date_limite='". $date ."'"); // never forget to fetch data
+        $req= $this->_db->query("SELECT * FROM task WHERE date_limite='".$date."'")or die(print_r($req->errorInfo(), true)); // never forget to fetch data
         $donnees= $req->fetchAll(PDO::FETCH_ASSOC);
         // var_dump($donnees);
         // die;
@@ -38,6 +38,7 @@ class TaskTransaction
                                 'id' => $id)) or die(print_r($req->errorInfo(), true));
         
     }
+    
 
 
 }

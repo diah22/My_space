@@ -19,14 +19,40 @@
     text-align: center;
 
 }
+.btn-simple{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    display: inline-block;
+    font-size: 1em;
+    padding: 1em 2em;
+    /* margin-top: 100px; */
+    /* margin-bottom: 60px; */
+    -webkit-appearance: none;
+    appearance: none;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    /* box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5); */
+  
+}
+/* Color */
+.c-red{
+    background-color: rgb(236, 71, 29);
+    background-color: #00FFCB;
+}
+.c-green{
+    background-color: rgb(18, 158, 48);
+}
 
 .bubbly-button{
     font-family: 'Helvetica', 'Arial', sans-serif;
     display: inline-block;
     font-size: 1em;
     padding: 1em 2em;
-    margin-top: 100px;
-    margin-bottom: 60px;
+    /* margin-top: 100px; */
+    /* margin-bottom: 60px; */
     -webkit-appearance: none;
     appearance: none;
     background-color: #fcc900;
@@ -102,14 +128,73 @@
 .btn {
     background-color: #fff;
     border: 1px solid #fcc900;
-    color: white;
+    color: #fcc900;
     padding: 12px 16px;
     font-size: 16px;
     cursor: pointer;
     max-height: 40px;
     width: 40px;
   }
-  
+  /* Padding */
+  .pd-10{
+      padding: 10px;
+  }
+  .pd-20{
+      padding: 10px;
+  }
+  .pd-30{
+      padding: 10px;
+  }
+
+  /* Margin */
+  .mg-10{
+      margin: 10px;
+  }
+  .mg-20{
+      margin: 10px;
+  }
+  .mg-30{
+      margin: 10px;
+  }
+
+  .mb-10{
+      margin-bottom: 10px;
+  }
+  .mb-20{
+      margin-bottom: 10px;
+  }
+  .mb-30{
+      margin-bottom: 10px;
+  }
+
+  .mt-10{
+      margin-top: 10px;
+  }
+  .mt-20{
+      margin-top: 20px;
+  }
+
+  /* Placing */
+  .pull-right{
+      width: 100%;
+      display: flex;
+      justify-content: end;
+  }
+  .pull-left{
+      width: 100%;
+      display: flex;
+      justify-content: start;
+  }
+  .in-middle{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .align{
+      display: flex;
+  }
+
   /* Darker background on mouse-over */
   .btn:hover {
     background-color: #fcc900;
@@ -248,7 +333,7 @@ td, th {
 .card-header{
     width: 100%;
     height: 60px;
-    background-color: rgba(122, 106, 151, 0.705);
+    background-color: #252f40;
     display: flex;
     justify-content: center;
 }

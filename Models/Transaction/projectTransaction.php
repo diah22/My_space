@@ -39,5 +39,13 @@ class ProjectTransaction
         return $donnees;
     }
 
+    public function modifProject(Project $project, $id){
+        $req= $this->_db->prepare('UPDATE project set nom=:nom, description=:descri, date_limite=:datel, statut=:statut WHERE id='.$id);
+        $req->execute(array('nom' => $project->getNom(),
+                            'descri' =>$project->getDescri(),
+                            'datel' => $project->getDate(),
+                            'statut' => $project->getStatut())) or die(print_r($req->errorInfo(), true));
+    }
+
 }
 ?>

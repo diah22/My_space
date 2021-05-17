@@ -28,6 +28,7 @@
     </div>
 
     <div class="content-body">
+    <div class="task-area">
     <?php
         if($tasks == null || $tasks == ""){
             ?>
@@ -55,7 +56,7 @@
                                 <td class="row-data task"><?php echo $task['contenu']?></td>
                                 <td class="row-data state">
                                     <div class="state-content">
-                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="EC"' class="checking tick">✔</a>
+                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="EC"' class="checking tick checked" style="box-shadow:0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);">✔</a>
                                         <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="N"' class="checking cross">✖</a>
                                         <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="O"' class="checking loading">✿</a>
                                     </div>
@@ -70,7 +71,7 @@
         }
     ?>
     </div>
-
+    </div>
 
 	<div id="exemple">
         <div class="modal-content">

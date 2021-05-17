@@ -12,7 +12,8 @@ let todoItem = {
   }
 
 let arrayItem; 
-
+const taskC= document.querySelector('.task-area');
+console.log(taskC);
 const ul= document.querySelector('.list-item');
 ul.addEventListener('click', function(e){
   let target= e.target;
@@ -47,7 +48,8 @@ function addSingleTodo(){
 function addItem(){
 	xhr.onreadystatechange= function(){
 		if(xhr.readyState==4 &&(xhr.status==200 || xhr.status==0)){
-      alert(xhr.responseText);
+      //alert(xhr.responseText);
+      console.log(xhr.responseText);
 		}
 	};
   todo= JSON.stringify(todoItem);
@@ -64,12 +66,12 @@ function searchtask(val){
 	};
 	xhr.open("GET", "../../Controller/TaskController/getTask.php?date="+ sdate, true);
 	xhr.send(null);
-  alert('ok');
   console.log(val);
 }
 
 function renderTask(data){
   console.log(data);
+  taskC.innerHTML= data;
 }
 
 function btnFlower(){

@@ -10,12 +10,11 @@ class EventTransaction
 
     public function addEvent(Event $event){
     
-        $req= $this->_db->prepare('INSERT INTO event( heure_deb,  heure_fin ,date,descri, user) VALUES (:heureDeb, :heureFin,:date, :descri, :user)');
+        $req= $this->_db->prepare('INSERT INTO event( heure_deb,  heure_fin ,date,descri) VALUES (:heureDeb, :heureFin,:date, :descri)');
         $req->execute(array('heureDeb' => $event->getHeureDeb(),
                                 'heureFin' => $event->getHeureFin(),
                                 'date' => $event->getDate(),
-                                'descri' => $event->getDescri(),
-                                'user' => $Event->getUser())) or die(print_r($req->errorInfo(), true)) ;
+                                'descri' => $event->getDescri())) or die(print_r($req->errorInfo(), true)) ;
     }
 
     // public function getEventByDate($date){

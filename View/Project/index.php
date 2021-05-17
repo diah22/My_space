@@ -51,8 +51,6 @@
                             <a href="details.php?id=<?php echo $donnee['id'];?>" class="btn-outline card-footer-content">More details</a>
                         </div>
                     </div>
-            
-                    
                 <?php
                 }
             ?>
@@ -71,11 +69,9 @@
                 </textarea><br>
                 <label for="title">Deadline</label><br>
                 <input type="date" name="datel" class="input">
-
                 <button class="bubbly-button btn-submit-project" name="addProject" type="submit">Valider</button>
             </form>
-        </div>
-  
+        </div>  
     </div>
 </body>
 <script src="../../assets/js/project.js"></script>
