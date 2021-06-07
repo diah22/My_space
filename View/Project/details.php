@@ -20,7 +20,8 @@
     <title>Project</title>
 </head>
 <body>
-    <?php include('../Utils/headers.php'); ?>
+    <?php include('../Utils/headers.php');
+          include('../Utils/nav.php') ?>
     <div class="content"> 
         <div class="col-block details-proj">
             <h3>Add goals in your project</h3>
@@ -42,8 +43,7 @@
                 <button class="btn add-task-for-proj">+</button>
             </div>
             <div class="in-middle">
-                <button class="bubbly-button mt-20">Save</button>
-            
+                <button class="bubbly-button mt-20" id="submitGoal" onclick="submitGoals()">Save</button>
             </div>
         </div>
         <div class="project-details col-block">
@@ -67,6 +67,7 @@
     </div>
 </body>
 <script src="../../assets/js/xhr.js"></script>
+<script src="../../assets/js/project.js"></script>
 <script>
     let to_edit_mode= false;
     const modifbtn= document.getElementById('btn-modif-proj');
@@ -81,7 +82,7 @@
             let state= document.getElementById('id_state').value;
 
             nom= encodeURIComponent(nom);
-            descri= encodeURIComponent(descri);
+            descri= encodeURIComponent(descri); // remains text form
             xhr.onreadystatechange= function(){
                 if(xhr.readyState==4 && (xhr.status == 200 ||xhr.status == 0)){
                     alert(xhr.responseText);
@@ -102,8 +103,6 @@
         });
         modifbtn.classList.remove('c-green');
         modifbtn.classList.add('c-red');
-
-        
     }
 </script>
 </html>

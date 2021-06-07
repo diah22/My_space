@@ -9,17 +9,16 @@ class UserTransaction
     }
 
     public function getAllUser(){
-        $req= $this->_db->query("SELECT * FROM users");
-        // $donnees= $req->fetchAll(PDO::FETCH_ASSOC);
+        $req= $this->_db->query("SELECT * FROM user");
+        //$donnees= $req->fetchAll(PDO::FETCH_ASSOC);
         return $req;
     }
 
     public function addUser(User $user){
-        $req=$this->_db->prepare("INSERT INTO users(username, password, email, sexe) VALUES (:username, :password, :email, :sexe)");
+        $req=$this->_db->prepare("INSERT INTO user(username, password, email) VALUES (:username, :password, :email)");
         $req->execute(array('username' => $user->getUsername(),
                             'password' => $user->getPassword(),
-                            'email' => $user->getEmail(),
-                            'sexe' => $user->getSexe())) or die(print_r($req->errorInfo(), true));
+                            'email' => $user->getEmail())) or die(print_r($req->errorInfo(), true));
     }
 }
 ?>

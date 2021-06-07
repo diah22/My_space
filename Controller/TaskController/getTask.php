@@ -21,15 +21,22 @@ class TaskController
  }
 
  if(isset($_GET['date'])){
-    $html="";
+    $html='<table class="table">';
+    $html.='<tr><th>Tâches</th><th id="state" class="state">Statut</th></tr>';
+   
     $date= $_GET['date'];
     $taskT= new TaskController();
     $donnees= $taskT->getAllTaskByDate($date);
     foreach($donnees as $donnee){
-      $html= "<p>".$donnee['contenu']."</p>";
+      $html.='<tr><td class="row-data task">'. $donnee["contenu"].'</td>';
+      $html.='<td class="row-data state"><div class="state-content">';
+      /*
+      $html.='<a href="../../Controller/TaskController/updateTask.php?id=<?php echo $task["id"]?>&act="EC"" class="checking tick checked" style="box-shadow:0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);">✔</a>
+      <a href="../../Controller/TaskController/updateTask.php?id=<?php echo $task["id"]?>&act="N"" class="checking cross">✖</a>
+      <a href="../../Controller/TaskController/updateTask.php?id=<?php echo $task["id"]?>&act="O"" class="checking loading">✿</a>';
+      */
     }
-    // searching a way to return php page in pur php
-    return $html;
+    echo $html;
  }
 
  

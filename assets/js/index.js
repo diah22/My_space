@@ -66,7 +66,6 @@ function searchtask(val){
 	};
 	xhr.open("GET", "../../Controller/TaskController/getTask.php?date="+ sdate, true);
 	xhr.send(null);
-  console.log(val);
 }
 
 function renderTask(data){

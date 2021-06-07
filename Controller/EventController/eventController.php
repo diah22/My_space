@@ -28,7 +28,7 @@
         public function getAllevent(){
             $bdd= $this->_bdd;
             $eventT= new EventTransaction($bdd);
-            $donnes= $eventT->getAllevent();
+            $donnes= $eventT->getAllEvent();
             return $donnes;
             // var_dump($donnes);
             // die;

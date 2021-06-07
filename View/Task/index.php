@@ -17,7 +17,11 @@
 <link rel="stylesheet" href="../../assets/css/utils.css"> 
 </head>
 <body>
-<?php include_once('../Utils/headers.php'); ?>
+<?php include_once('../Utils/headers.php');
+      include_once('../Utils/nav.php');
+ ?>
+ <div class="container">
+
 <div class="content">
     <div class="content-header-left">
         <h2><?php echo $tdate ?></h2>
@@ -26,7 +30,23 @@
         <input type="date" class="input-20" onChange="searchtask(this.value)">
         <button class="btn"><img class="icon" src="../../assets/icon/search-1.png"></button>
     </div>
+    <div class="modal modal-task">
+        <div class="modal-content">
+            <div class="space-between">
+                <h3>Add task<h3>
+                <a onclick=closemodal() style="justify-content:space-between"><span class="close">&times;</span></a>
+            </div>
+            <input type="text" id="item" class="input modal-content-container" placeholder="Doing ... ">
+            <button class="btn-rounded btn-size-icon" onclick="addSingleTodo()">+</button>
+            <div class="list-todo">
+                <ul class="list-item">
 
+                </ul>
+                <button class="bubbly-button btn-modal" id="submitTodo">Valider</button>
+            </div>
+            
+        </div>
+    </div>
     <div class="content-body">
     <div class="task-area">
     <?php
@@ -70,27 +90,25 @@
             <?php
         }
     ?>
-    </div>
-    </div>
-
-	<div id="exemple">
-        <div class="modal-content">
-            <a onclick=closemodal()><span class="close">&times;</span></a>
-            <input type="text" id="item" class="input modal-content-container" placeholder="Doing ... ">
-            <button class="btn-rounded btn-size-icon" onclick="addSingleTodo()">+</button>
-            <div class="list-todo">
-                <ul class="list-item">
-
-                </ul>
-                <button class="bubbly-button btn-modal" id="submitTodo">Valider</button>
-            </div>
-
-            
         </div>
     </div>
 </div>
-
+</div>
 </body>
+<script>
+    const modal= document.querySelector('.modal');
+    const container= document.querySelector('.container');
+    function showmodal(){  
+        modal.style.display= 'block';
+        // container.style.background='#cccccc';
+    }
+
+    function closemodal(){
+        modal.style.display='none';
+        // modal.style.marginTop= '-700px';
+        container.style.background='#fff';
+    }
+</script>
 <script src="../../assets/js/xhr.js"></script>
 <script src="../../assets/js/modal.js"></script>
 <script src="../../assets/js/default.js"></script>

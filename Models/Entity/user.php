@@ -21,7 +21,7 @@ class User
     }
 
     public function setPassword($password){
-        $this->_password= $password;
+        $this->_password= sha1($password);
     }
 
     public function getEmail(){

@@ -24,7 +24,9 @@
     <title>Project</title>
 </head>
 <body>
-    <?php include('../Utils/headers.php'); ?>
+    <?php include('../Utils/headers.php');
+          include('../Utils/nav.php');
+     ?>
     <div class="content">
         <div class="container">
             <div class="col">
