@@ -24,11 +24,11 @@
             if(isset($_POST['email']) && $_POST['email']!==''){
                 $email= $_POST['email'];
             }
-            if(isset($_POST['pass1']) && $_POST['pass1']!==''){
-                $pass1= $_POST['pass1'];
+            if(isset($_POST['password']) && $_POST['password']!==''){
+                $pass1= $_POST['password'];
             }
-            if(isset($_POST['pass2']) && $_POST['pass2']!==''){
-                $pass2= $_POST['pass2'];
+            if(isset($_POST['confpass']) && $_POST['confpass']!==''){
+                $pass2= $_POST['confpass'];
             }
         
             if($pass1 != $pass2){

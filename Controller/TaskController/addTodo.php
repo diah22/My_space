@@ -30,12 +30,11 @@
                    $taskT->addTask($task);
                }
             }
+            Header('Location:../../View/Task/index.php');
 
         }
 
     }
     $todo= new AddTodo();
-    $todo->addTodo();
-    Header('Location:../../View/Task/index.php');
-    
+    $todo->addTodo(); 
 ?>

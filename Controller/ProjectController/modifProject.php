@@ -42,6 +42,8 @@
             $project->setDescri($descri);
             $project->setStatut($state);
             $projectT->modifProject($project, $id);
+
+            Header('Location:../../View/Project/details.php?id='.$id);
         }
     }
 

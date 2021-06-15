@@ -25,20 +25,20 @@
     <div class="content"> 
         <div class="col-block details-proj">
             <h3>Add goals in your project</h3>
-            <input type="text" class="input mb-10" placeholder="Your goal">
+            <input type="text" class="input mb-10" id="id_goals_project" placeholder="Your goal">
             <div class="align in-middle">
                 <label>Start</label>
-                <input type="date" class="input mb-10 input-date-proj" name="dates"> 
+                <input type="date" class="input mb-10 input-date-proj" id="id_dates"> 
             </div>
             <div class="align in-middle">
                 <label>End</label>
-                <input type="date" class="input mb-10 input-date-proj" name="datee">
+                <input type="date" class="input mb-10 input-date-proj" id="id_datee">
             </div>
             <h6>Tasks</h6>
             <div class="task-add-container">
                 <div class="task-for-proj">
-                    <input type="text" class="input mb-10" name="task-proj-0">
-                    <input type="date" class="input mb-10" name="datel-0">
+                    <input type="text" class="input goal-task mb-10" name="task-proj-0">
+                    <input type="date" class="input goal-date mb-10" name="datel-0">
                 </div>
                 <button class="btn add-task-for-proj">+</button>
             </div>
