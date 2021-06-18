@@ -61,7 +61,7 @@
         </div>
         
         <div class="add-project">
-            <form method="POST">
+            <form method="POST" style="padding:20px;box-shadow: 0px 7px 29px 0px rgba(0,0,0, 0.2);">
                 <h2>Add new project</h2>
                 <label for="title">Title</label><br>
                 <input type="text" name="title" class="input"><br>

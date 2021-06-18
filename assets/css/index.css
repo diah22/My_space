@@ -198,7 +198,7 @@ li .task-tick{
 }
 .toggle{
   transition: margin 1s cubic-bezier(0.17, 0.04, 0.03, 0.94);
-  margin-top: 390px;
+  margin-top: 450px;
   z-index: 3;
 }
 

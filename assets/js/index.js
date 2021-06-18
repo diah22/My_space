@@ -49,7 +49,8 @@ function addItem(){
 	xhr.onreadystatechange= function(){
 		if(xhr.readyState==4 &&(xhr.status==200 || xhr.status==0)){
       //alert(xhr.responseText);
-      console.log(xhr.responseText);
+      
+      window.location.assign('../../View/Task/index.php');
 		}
 	};
   todo= JSON.stringify(todoItem);

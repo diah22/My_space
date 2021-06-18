@@ -31,7 +31,7 @@
                     // var_dump($item);
                     // die;
                     // print_r($item);
-                    echo $item;
+                    echo $item['name'];
                 }
              }
         

@@ -29,9 +29,9 @@
                    $task->setStatut($default_stat);
                    $taskT->addTask($task);
                }
+               Header('Location:../../View/Task/index.php');
             }
-            Header('Location:../../View/Task/index.php');
-
+           
         }
 
     }

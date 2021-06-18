@@ -21,8 +21,9 @@
             $event->setDescri($descri);
             $event->setDate($date);
             $eventT->addEvent($event);
-            $success=1;
-            return $success;
+            Header('Location:../../View/Event/index.php'); //reste à savoir comment ajouter un notif
+            // $success=1;
+            // return $success;
         }
 
         public function getAllevent(){
@@ -30,9 +31,6 @@
             $eventT= new EventTransaction($bdd);
             $donnes= $eventT->getAllEvent();
             return $donnes;
-            // var_dump($donnes);
-            // die;
-            // print_r($donnes);
         }
     }
 ?>
