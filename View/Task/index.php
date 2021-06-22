@@ -42,7 +42,7 @@
                 <ul class="list-item">
 
                 </ul>
-                <button class="bubbly-button btn-modal" id="submitTodo">Valider</button>
+                <button class="bubbly-button btn-modal" id="submitTodo" disabled>Valider</button>
             </div>
             
         </div>
@@ -108,6 +108,8 @@
         // modal.style.marginTop= '-700px';
         container.style.background='#fff';
     }
+
+    
 </script>
 <script src="../../assets/js/xhr.js"></script>
 <script src="../../assets/js/modal.js"></script>

@@ -109,29 +109,29 @@
     addTaskBtn.addEventListener('click', addNewTaskArea);
 
     // function for adding new div for goals project
-function addNewTaskArea(){
-  task++;
-  const goal= document.querySelector('.goal-task').value;
-const date= document.querySelector('.goal-date').value;
-  tasks.classList.remove('goal-task');
-  dates.classList.remove('goal-date');
-  taskContainer.lastElementChild.remove();
-  let div= document.createElement('div');
-  div.classList.add('task-for-proj');
+    function addNewTaskArea(){
+        task++;
+        const goal= document.querySelector('.goal-task').value;
+        const date= document.querySelector('.goal-date').value;
+        tasks.classList.remove('goal-task');
+        dates.classList.remove('goal-date');
+        taskContainer.lastElementChild.remove();
+        let div= document.createElement('div');
+        div.classList.add('task-for-proj');
 
-  let button= document.createElement('button');
-  button.style.content = '+';
-  button.classList.add('btn', 'add-task-for-proj');
-  let area= `
-                <input type="text" class="input goal-task mb-10" name="task-proj-${task}">
-                <input type="date" class="input goal-date mb-10" name="datel-${task}">
-            `;
-  div.innerHTML= area;
-  taskContainer.appendChild(div);
-  taskContainer.appendChild(button);
-  button.addEventListener('click', addNewTaskArea);
-  pGoals.addOneGoalItem(goal, date);
-  console.log(pGoals);
-}
+        let button= document.createElement('button');
+        button.style.textContent = '+';
+        button.classList.add('btn', 'add-task-for-proj');
+        let area= `
+                        <input type="text" class="input goal-task mb-10" name="task-proj-${task}">
+                        <input type="date" class="input goal-date mb-10" name="datel-${task}">
+                    `;
+        div.innerHTML= area;
+        taskContainer.appendChild(div);
+        taskContainer.appendChild(button);
+        button.addEventListener('click', addNewTaskArea);
+        pGoals.addOneGoalItem(goal, date);
+        console.log(pGoals);
+    }
 </script>
 </html>

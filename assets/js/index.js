@@ -11,6 +11,7 @@ let todoItem = {
     }
   }
 
+  
 let arrayItem; 
 const taskC= document.querySelector('.task-area');
 console.log(taskC);
@@ -34,6 +35,15 @@ lists.forEach(list=>{
 function addSingleTodo(){
     const li= document.createElement('li');
     const item= document.getElementById('item').value;
+    console.log(todoItem.items);
+    if(todoItem.items === ""){
+      console.log('vide');
+      document.getElementById('submitTodo').disabled= true;
+    }
+    else{
+      document.getElementById('submitTodo').disabled= false;
+    }
+  
     todoItem.addItem(item);
     arrayItem= todoItem.items;
     arrayItem.forEach(array=>{

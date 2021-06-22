@@ -66,6 +66,12 @@
     /* box-shadow: 0 2px 25px #f5da4e; */
     box-shadow: 0 2px 25px #f5cb48;
 }
+.bubbly-button[disabled]{
+   
+    opacity: 0.65; 
+    cursor: not-allowed;
+      
+}
 
 .bubbly-button:focus {
     outline: 0;

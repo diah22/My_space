@@ -235,7 +235,7 @@ button.bubbly-button.btn-submit-project {
 
 .add-task-for-proj{
   position: absolute;
-  right: 0;
+  right: -50px;
   bottom: 0;
 }
 
@@ -284,6 +284,39 @@ button.bubbly-button.btn-submit-project {
   box-shadow: 0.36em 0 0.36em 0 rgba(0, 0, 0, 0.4);
   overflow-y: scroll;
 }
+
+.modal::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+ }
+ .modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #f9d4ff 14%,#c7ceff 64%);
+  border-radius: 10px;
+ }
+ .modal::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(13deg, #c7ceff 14%,#f9d4ff 64%);
+ }
+ .modal::-webkit-scrollbar-track{
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: inset 7px 10px 12px #f0f0f0;
+ }
+ /*
+.modal::-webkit-scrollbar,
+.modal::-webkit-scrollbar-thumb{
+  width: 26px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+  
+}
+
+.modal::-webkit-scrollbar-thumb{
+  box-shadow: inset 0 0 0 10px;
+}
+/* .modal:hover{
+  color: rgba(0, 0, 0, 0.3);
+} */
 .modal-event{
   visibility: hidden;
   width: 50%;
