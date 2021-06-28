@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/default.css">
-    <link rel="stylesheet" href="../../assets/css/index.css">
-    <link rel="stylesheet" href="../../assets/css/utils.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/utils.css">
     <style>
         .login{
             box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -26,10 +26,10 @@
         <div class="content">
             <div class="row home-page">
                 <div class="image-content">
-                    <img src="../../assets/images/login.jpg">
+                    <img src="assets/images/login.jpg">
                 </div>
                 <div class="login">
-                    <form method="post" action="../../Controller/DefaultController/getAllUser.php">
+                    <form method="post" action="Controller/DefaultController/getAllUser.php">
                     <div class="in-middle">
                         <h4> Signin</h4>
                     </div>
@@ -39,7 +39,7 @@
                             <button class="bubbly-button btn-modal" type="submit">Signin</button>
                         </div>
                         
-                        <p>You don't have any account ? <a href="createaccount.php">Let'create a new account</a></p>
+                        <p>You don't have any account ? <a href="View/Default/createaccount.php">Let'create a new account</a></p>
                     </form>
                 </div>
             </div>

@@ -52,7 +52,7 @@ function slideEffet(){
 
 // function for submitting data to db using ajax
 function submitGoals(){
-  const goal= document.querySelector('.goal-task').value;
+const goal= document.querySelector('.goal-task').value;
 const date= document.querySelector('.goal-date').value;
   pGoals.addOneGoalItem(goal, date);
   const xhr= getXMLHttpRequest();

@@ -69,7 +69,7 @@ if(isset($_GET['response']) && $_GET['response']!='')
                         <div class="in-middle mt-20">
                             <button class="bubbly-button btn-modal" type="submit">Signup</button>
                         </div>
-                        <p>Have you already an account? Please<a href="index.php">signin here</a></p>
+                        <p>Have you already an account? Please<a href="../../index.php">Signin here</a></p>
                     </form>
         
                 </div>

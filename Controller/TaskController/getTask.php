@@ -27,13 +27,27 @@ class TaskController
     $date= $_GET['date'];
     $taskT= new TaskController();
     $donnees= $taskT->getAllTaskByDate($date);
+    
     foreach($donnees as $donnee){
       $html.='<tr><td class="row-data task">'. $donnee["contenu"].'</td>';
-      $html.='<td class="row-data state"><div class="state-co:ntent">';
+      $html.='<td class="row-data state"><div class="state-content">';
+      if($donnee['statut'] === 'N'){
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross checked-cross">✖</a>';
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading">✿</a>';
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick">✔</a>';
+      }
+      elseif($donnee['statut'] === 'EC'){
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross">✖</a>';
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading checked-loading">✿</a>';
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick">✔</a>';
+      }
+      else{
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross">✖</a>';
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading">✿</a>';
+         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick checked-tick">✔</a>';
+      }
       
-      $html.='<a href="../../Controller/TaskController/updateTask.php?id=<?php echo $task["id"]?>&act="EC"" class="checking tick checked" style="box-shadow:0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);">✔</a>
-      <a href="../../Controller/TaskController/updateTask.php?id=<?php echo $task["id"]?>&act="N"" class="checking cross">✖</a>
-      <a href="../../Controller/TaskController/updateTask.php?id=<?php echo $task["id"]?>&act="O"" class="checking loading">✿</a>';
+      $html.='</td>';
       
     }
     echo $html;
