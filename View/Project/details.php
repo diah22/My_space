@@ -35,7 +35,8 @@
                 <input type="date" class="input mb-10 input-date-proj" id="id_datee">
             </div>
             <h6>Tasks</h6>
-            <div class="task-add-container">
+            <button id="btn_show_task" onclick="showArea()">Add task</button>
+            <div class="task-add-container" style="display:none">
                 <div class="task-for-proj">
                     <input type="text" class="input goal-task mb-10" name="task-proj-0">
                     <input type="date" class="input goal-date mb-10" name="datel-0">
@@ -51,9 +52,7 @@
             <input type="text" class="no-edit mb-20" id="id_nom" value="<?php echo $donnee['nom']?>" readonly>
             <input type="hidden" id="id_proj" value="<?php echo $donnee['id']?>">
             <label>Description:</label>
-            <textarea class="no-edit mb-20" od="id_descri" cols="30" readonly>
-                <?php echo $donnee['description'] ?>
-            </textarea>
+            <textarea class="no-edit mb-20" od="id_descri" cols="30" readonly><?php echo $donnee['description'] ?></textarea>
             <label>State: </label><br>
             <select class="no-edit mb-20" id="id_state" readonly>
                 <option value="<?php echo $donnee['statut']?>" default><?php echo $donnee['statut']?></option>
@@ -120,7 +119,8 @@
         div.classList.add('task-for-proj');
 
         let button= document.createElement('button');
-        button.style.textContent = '+';
+        const tn= document.createTextNode('+');
+        button.appendChild(tn);
         button.classList.add('btn', 'add-task-for-proj');
         let area= `
                         <input type="text" class="input goal-task mb-10" name="task-proj-${task}">

@@ -21,11 +21,30 @@ const dates= document.querySelector('.goal-date');
 const saveGoals= document.getElementById('submitGoal');
 
 
+/** Make buttons disabled when list goals projetct empty */
+
+
+/**  appel function */
 toggleBtn.addEventListener('click', slideEffet);
 
+function showArea(){
+  document.getElementById('btn_show_task').style.display='none';
+  taskContainer.style.display= 'table';
+}
+
+// function changeDisabled(){
+//   if(goals_proj === "" || datestart == "" || dateend == ""){
+//     document.getElementById('submitGoal').disabled= true;
+//   }
+//   else{
+//     document.getElementById('submitGoal').disabled= false;
+//   }
+  
+// }
 
 function slideEffet(){
   const divToShow= document.querySelector('.add-project');
+  divToShow.style.visibility = 'visible';
   divToShow.style.top= '170px';
   divToShow.style.left= '10px';
   container.classList.add('toggle');
@@ -47,6 +66,7 @@ const date= document.querySelector('.goal-date').value;
   const goals_proj= document.getElementById('id_goals_project').value;
   const datestart= document.getElementById('id_dates').value;
   const dateend= document.getElementById('id_datee').value;
+
   xhr.open('GET', '../../Controller/ProjectController/addGoals.php?nbrTask='+task+'&pGoals='+pGoals+'&goals='+goals_proj+'&dates='+datestart+'&datee='+dateend, true);
   xhr.send(null);
 }

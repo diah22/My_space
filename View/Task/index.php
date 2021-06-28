@@ -30,7 +30,7 @@
         <input type="date" class="input-20" onChange="searchtask(this.value)">
         <button class="btn"><img class="icon" src="../../assets/icon/search-1.png"></button>
     </div>
-    <div class="modal modal-task">
+    <!-- <div class="modal modal-task">
         <div class="modal-content">
             <div class="space-between">
                 <h3>Add task<h3>
@@ -46,6 +46,29 @@
             </div>
             
         </div>
+    </div> -->
+    <div id="openModal" class="modalDialog">
+        <div> 
+            <div class="space-between">
+                <h3>Add task<h3>
+                <a href="#close" title="Close" class="close"><span style="font-size:16px">X</span></a>
+                <!-- <a onclick=closemodal() style="justify-content:space-between"><span class="close">&times;</span></a> -->
+            </div>
+            <div class="space-between">
+                <input type="text" id="item" class="input modal-content-container" placeholder="Doing ... ">
+                <button class="btn-rounded btn-size-icon" onclick="addSingleTodo()">+</button>
+            </div>
+            
+            <div class="list-todo">
+                <ul class="list-item">
+
+                </ul>
+                <div class="in-middle">
+                    <button class="bubbly-button btn-modal" id="submitTodo" disabled>Valider</button>
+                </div>
+                
+            </div>
+        </div>
     </div>
     <div class="content-body">
     <div class="task-area">
@@ -56,9 +79,7 @@
                 <p>No task for today . Do you want to add new task?</p><br>
                 
                 <img alt="task" class="task-bgimage" src="../../assets/images/task-1.jpg"> 
-
-                <button class="bubbly-button" onclick="showmodal()">Add task</button>
-            </div>
+                <a class="bubbly-button" id="modal-task" style="text-decoration:none" href="#openModal">Add task</a>
             <?php
         }
         else{
@@ -68,6 +89,7 @@
                     <tr>
                         <th>Tâches</th>
                         <th id="state" class="state">Statut</th>
+                        <a href="#openModal" style="float:right; margin-left:30px">Add </a>
                     </tr>
                     <?php
                             foreach($tasks as $task){
@@ -76,10 +98,31 @@
                                 <td class="row-data task"><?php echo $task['contenu']?></td>
                                 <td class="row-data state">
                                     <div class="state-content">
-                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="EC"' class="checking tick">✔</a>
-                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="N"' class="checking cross checked">✖</a>
-                                        <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act="O"' class="checking loading">✿</a>
+                                        <?php
+                                           if( $task['statut'] === 'N'){
+                                               ?>
+                                            <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross checked-cross">✖</a>
+                                            <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading">✿</a>
+                                            <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=O' class="checking tick">✔</a>
+                                           <?php
+                                           } 
+                                           elseif($task['statut']=== 'EC'){
+                                               ?>
+                                            <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross">✖</a>
+                                            <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading checked-ec">✿</a>
+                                            <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=O' class="checking tick">✔</a>
+                                           <?php
+                                           } else{
+                                               ?>
+                                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross">✖</a>
+                                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading">✿</a>
+                                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=O' class="checking tick checked-tick">✔</a>
+                                               <?php
+                                           }
+                                        ?>
+                                        
                                     </div>
+                                
                                 </td>
                             </tr>
                             <?php
@@ -98,16 +141,22 @@
 <script>
     const modal= document.querySelector('.modal');
     const container= document.querySelector('.container');
-    function showmodal(){  
-        modal.style.display= 'block';
-        // container.style.background='#cccccc';
-    }
+    document.getElementById('modal-task').addEventListener('click', function(){
+        document.querySelector("body").style.overflow = 'hidden';
+    });
+    document.querySelector('.close').addEventListener('click'; function(){
+        document.querySelector("body").style.overflow = 'visible';
+    });
+    // function showmodal(){  
+    //     modal.style.display= 'block';
+    //     // container.style.background='#cccccc';
+    // }
 
-    function closemodal(){
-        modal.style.display='none';
-        // modal.style.marginTop= '-700px';
-        container.style.background='#fff';
-    }
+    // function closemodal(){
+    //     modal.style.display='none';
+    //     // modal.style.marginTop= '-700px';
+    //     container.style.background='#fff';
+    // }
 
     
 </script>

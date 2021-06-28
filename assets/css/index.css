@@ -60,10 +60,9 @@ body{
 
 /* Add task */
 .list-todo{
-  width: 50em;
+  width: 100%;
   height: 30em;
   justify-content: center;
-  margin-left: 8em;
   text-align: center;
 }
 
@@ -133,26 +132,53 @@ a.checking {
   text-decoration: none;
   border-radius: 30%;
   padding: 1px;
-  background-color: rgb(117, 207, 235);
+  /* background-color: rgb(117, 207, 235); */
   margin-left: 20px;
   width: 30px;
   text-align: center;
 }
 a.tick{
   color: #1ea80b;
-  background-color: #fff;
+  /* box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+  background-color:#1ea80b ; */
 }
+
 a.cross{
   color: #f01212;
 }
 
+a.cross:hover{
+  color: #fff;
+  transform: scale(1.3);
+}
+
+a.tick:hover{
+  color: #fff;
+  transform: scale(1.3);
+}
 a.loading{
-  color: #ff841f;
+  color: #fff;
 }
 a.loading:hover{
   color: #fff;
-  background-color: #ff841f;
-  border: none;
+  transform: scale(1.3);
+
+}
+
+.checked-tick{
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+  background-color:#1ea80b ; 
+  color: #fff;
+}
+.checked-ec{
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+  background-color:#1ea80b ; 
+  color: #fff;
+}
+.checked-cross{
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+  background-color:#f01212 ; 
+  color: #fff;
 }
 
 .btn-outline.card-footer-content{
@@ -181,11 +207,12 @@ li .task-tick{
 }
 
 .add-project{
+  visibility: hidden;
   height: auto;
   position: absolute;
   transition: all 1s cubic-bezier(0.17, 0.04, 0.03, 0.94);
   /* top: 205px; */
-  left: -1200px;
+  left: -2000px;
   margin-left: 150px;
   width: 70%;
   z-index: 1;
@@ -283,6 +310,79 @@ button.bubbly-button.btn-submit-project {
   background-color: #fff;
   box-shadow: 0.36em 0 0.36em 0 rgba(0, 0, 0, 0.4);
   overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.modalDialog{
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+}
+
+.modalDialog > div {
+  width: 50%;
+  height: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.modalDialog > div::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+ }
+ .modalDialog > div::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #f9d4ff 14%,#c7ceff 64%);
+  border-radius: 10px;
+ }
+ .modalDialog > div::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(13deg, #c7ceff 14%,#f9d4ff 64%);
+ }
+ .modalDialog > div::-webkit-scrollbar-track{
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: inset 7px 10px 12px #f0f0f0;
+ }
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
+
+.close {
+  /* background: #606061; */
+  color: #606061;
+  line-height: 25px;
+  position: absolute;
+  /* border-radius: 50%; */
+  padding: 3px;
+  right: 10px;
+  top: 15px;
+  text-align: center;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  /* -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px; */
+  /* -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000; */
+}
+.close:hover {
+  /* background: #00d9ff; */
+  color: #f01212;
 }
 
 .modal::-webkit-scrollbar {

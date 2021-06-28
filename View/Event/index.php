@@ -45,9 +45,7 @@
                     <input class="input-2 mb-10" name="heuref" type="time">
                 </div>   
                 <div class="in-middle">
-                    <textarea cols="60" class="input-3 mb-20" name="descri" rows="5">
-                    
-                    </textarea>
+                    <textarea cols="60" class="input-3 mb-20" name="descri" rows="5"></textarea>
                 </div>
                 
                 <button type="submit" name="savevent" class="bubbly-button f-right">Save</button>
@@ -87,10 +85,14 @@
     myCalender.onValueChange((currentValue) => {
         const modal= document.querySelector('.modal');
         const container= document.querySelector('.container');
-        console.log(container);
+        const allEvent= document.getElementById('show-all-event');
+    
         container.style.background= '#cccccc';
+        allEvent.style.background='#cccccc';
         modal.style.visibility= 'visible';
         modal.style.marginTop= '-70px';
+        document.querySelector("body").style.overflow = 'hidden';
+        document.querySelector("body").style.background = '#cccccc';
         console.log(`The current value of the calendar is: ${currentValue}`);
         const datea= document.getElementById('date-event');
         let months= currentValue.getMonth();
