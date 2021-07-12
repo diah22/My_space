@@ -39,6 +39,21 @@ class ProjectTransaction
         return $donnees;
     }
 
+    public function addProjectGoal(Project $project){
+        $req= $this->_db->prepare('INSERT INTO goals_proj(id_plan,content, start_date, end_date) VALUES(:id, :content, :startdate, :enddate)');
+        $req->execute(array('id' => $project->getIdProj(),
+                            'content' => $project->getGoals(),
+                            'startdate' => $project->getGoalDateS(),
+                            'enddate' => $project->getGoalDateE())) or die(print_r($req->errorInfo(), true));
+    }
+
+    public function addTaskForGoals(Project $project){
+        $req= $this->_db->prepare('INSERT INTO task_proj(id_plan, content, deadline) VALUES(:id, :content, :deadline)');
+        $req->execute(array('id' => $project->getIdProj(),
+                            'content' => $project->getTaskContent(),
+                            'deadline'=> $project->getDateTask())) or die(print_r($req->errorInfo(), true));
+    }
+
     public function modifProject(Project $project, $id){
         $req= $this->_db->prepare('UPDATE project set nom=:nom, description=:descri, date_limite=:datel, statut=:statut WHERE id='.$id);
         $req->execute(array('nom' => $project->getNom(),

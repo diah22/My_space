@@ -21,35 +21,47 @@ class TaskController
  }
 
  if(isset($_GET['date'])){
-    $html='<table class="table">';
-    $html.='<tr><th>Tâches</th><th id="state" class="state">Statut</th></tr>';
+   
    
     $date= $_GET['date'];
     $taskT= new TaskController();
     $donnees= $taskT->getAllTaskByDate($date);
     
-    foreach($donnees as $donnee){
-      $html.='<tr><td class="row-data task">'. $donnee["contenu"].'</td>';
-      $html.='<td class="row-data state"><div class="state-content">';
-      if($donnee['statut'] === 'N'){
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross checked-cross">✖</a>';
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading">✿</a>';
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick">✔</a>';
-      }
-      elseif($donnee['statut'] === 'EC'){
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross">✖</a>';
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading checked-loading">✿</a>';
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick">✔</a>';
-      }
-      else{
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross">✖</a>';
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading">✿</a>';
-         $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick checked-tick">✔</a>';
-      }
-      
-      $html.='</td>';
-      
+   //  if(!$donnees){
+       
+   //     $html='<div class="content-body no-task">';
+   //     $html.='<p>No task available. Do you want to add new task?</p>';
+   //     $html.='<img alt="task" class="task-bgimage" src="../../assets/images/task-1.jpg">';
+   //     $html.='<a class="bubbly-button" id="modal-task" style="text-decoration:none" href="#openModal">Add task</a>';
+   //     $html.='</div>';
+   //  }
+   //  else{
+      $html='<table class="table">';
+      $html.='<tr><th>Tâches</th><th id="state" class="state">Statut</th></tr>';
+      foreach($donnees as $donnee){
+         $html.='<tr><td class="row-data task">'. $donnee["contenu"].'</td>';
+         $html.='<td class="row-data state"><div class="state-content">';
+         if($donnee['statut'] === 'N'){
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross checked-cross">✖</a>';
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading">✿</a>';
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick">✔</a>';
+         }
+         elseif($donnee['statut'] === 'EC'){
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross">✖</a>';
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading checked-loading">✿</a>';
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick">✔</a>';
+         }
+         else{
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=N" class="checking cross">✖</a>';
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=EC" class="checking loading">✿</a>';
+            $html.='<a href="../../Controller/TaskController/updateTask.php?id=2&act=O" class="checking tick checked-tick">✔</a>';
+         }
+         
+         $html.='</td>';
+         
+      // }
     }
+    
     echo $html;
  }
 

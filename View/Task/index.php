@@ -1,12 +1,14 @@
 <?php
+    session_start();
+    $userId= $_GET['userid'];
     include_once('../../Controller/TaskController/taskController.php');
+    include_once('../../Controller/UserController/userController.php');
     $cdate= date("Y-m-d");
     $tdate= date('l d');
     $taskC= new TaskController();
+    $userC= new UserController();
+    $user= $userC->getUserById($userId);
     $tasks= $taskC->getAllTaskByDate($cdate);
-    // var_dump($tasks);
-    // die;
-    // print($tasks);
 ?>
 <!DOCTYPE html>
 <html>
@@ -102,7 +104,7 @@
                                            if( $task['statut'] === 'N'){
                                                ?>
                                             <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross checked-cross">✖</a>
-                                            <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading">✿</a>
+                                            <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading">⌛</a>
                                             <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=O' class="checking tick">✔</a>
                                            <?php
                                            } 

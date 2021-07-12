@@ -27,18 +27,22 @@ const saveGoals= document.getElementById('submitGoal');
 /**  appel function */
 toggleBtn.addEventListener('click', slideEffet);
 
+
 function showArea(){
   document.getElementById('btn_show_task').style.display='none';
   taskContainer.style.display= 'table';
 }
 
-// function changeDisabled(){
-//   if(goals_proj === "" || datestart == "" || dateend == ""){
-//     document.getElementById('submitGoal').disabled= true;
-//   }
-//   else{
-//     document.getElementById('submitGoal').disabled= false;
-//   }
+function changeDisabled(){
+  const goals_proj= document.getElementById('id_goals_project').value;
+  const datestart= document.getElementById('id_dates').value;
+  const dateend= document.getElementById('id_datee').value;
+   if(goals_proj === "" || datestart == "" || dateend == ""){
+     document.getElementById('submitGoal').disabled= true;
+   }
+   else{
+     document.getElementById('submitGoal').disabled= false;
+  }}
   
 // }
 
@@ -54,6 +58,7 @@ function slideEffet(){
 function submitGoals(){
 const goal= document.querySelector('.goal-task').value;
 const date= document.querySelector('.goal-date').value;
+
   pGoals.addOneGoalItem(goal, date);
   const xhr= getXMLHttpRequest();
   xhr.onreadystatechange =function(){
@@ -61,13 +66,15 @@ const date= document.querySelector('.goal-date').value;
       alert(xhr.responseText);
     }
   }
-  
-  pGoals= JSON.stringify(pGoals);
   const goals_proj= document.getElementById('id_goals_project').value;
   const datestart= document.getElementById('id_dates').value;
   const dateend= document.getElementById('id_datee').value;
+  const id= document.getElementById('id_proj').value;
 
-  xhr.open('GET', '../../Controller/ProjectController/addGoals.php?nbrTask='+task+'&pGoals='+pGoals+'&goals='+goals_proj+'&dates='+datestart+'&datee='+dateend, true);
-  xhr.send(null);
+    pGoals= JSON.stringify(pGoals);
+    xhr.open('GET', '../../Controller/ProjectController/addGoals.php?nbrTask='+task+'&pGoals='+pGoals+'&goals='+goals_proj+'&dates='+datestart+'&datee='+dateend+'&idproj='+id, true);
+    xhr.send(null);
+  
+  
 }
 

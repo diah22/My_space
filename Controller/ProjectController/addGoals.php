@@ -18,28 +18,42 @@
             $bdd= $this->_bdd;
             $projectT = new ProjectTransaction($bdd);
 
+            if(isset($_GET['idproj'])){
+                $project->setIdProj($_GET['idproj']);
+            }
+
             if(isset($_GET['pGoals'])){
                 $goalsItem= json_decode($_GET['pGoals']);
-    
+                
                 $items= $goalsItem->oneitem;
+               
                 foreach($items as $item){
-                    // $task->setContenu($item);
-                    // $task->setDate($date);
-                    // $task->setUser($user);
-                    // $task->setStatut($default_stat);
-                    // $taskT->addTask($task);
-                    // var_dump($item);
-                    // die;
-                    // print_r($item);
-                    echo $item['name'];
+                    $nom= $item->name;
+                    $date= $item->date;
+                    if($nom != "" && $date != ""){
+                        $project->setTaskContent($nom);
+                        $project->setDateTask($date);
+
+                        $projectT->addTaskForGoals($project);
+                    }
+                    //   echo $item['name'];
                 }
              }
         
-            // $project->setDate($deadline);
-            // $project->setNom($nom);
-            // $project->setDescri($descri);
-            // $project->setStatut($state);
-            // $projectT->modifProject($project, $id);
+            if(isset($_GET['goals'])){
+                $project->setGoals($_GET['goals']);
+                
+            }
+            if(isset($_GET['dates'])){
+                $project->setGoalDateS($_GET['dates']);
+            }
+            if(isset($_GET['datee'])){
+                $project->setGoalDateE($_GET['datee']);
+            }
+           
+
+            $projectT->addProjectGoal($project);
+            echo "Enregistrement avec success";
         }
     }
 

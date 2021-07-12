@@ -1,4 +1,5 @@
 <?php
+session_start();
     include_once('../../Controller/ProjectController/projectController.php');
     include_once('../../Models/Transaction/Utils.php');
     $projectC= new ProjectController();

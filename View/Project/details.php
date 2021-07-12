@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once('../../Controller/ProjectController/projectController.php');
     include_once('../../Models/Transaction/Utils.php');
     $projectC= new ProjectController();
@@ -25,14 +26,14 @@
     <div class="content"> 
         <div class="col-block details-proj">
             <h3>Add goals in your project</h3>
-            <input type="text" class="input mb-10" id="id_goals_project" placeholder="Your goal">
+            <input type="text" class="input mb-10" onchange="changeDisabled()" id="id_goals_project" placeholder="Your goal">
             <div class="align in-middle">
                 <label>Start</label>
-                <input type="date" class="input mb-10 input-date-proj" id="id_dates"> 
+                <input type="date" onchange="changeDisabled()" class="input mb-10 input-date-proj" id="id_dates"> 
             </div>
             <div class="align in-middle">
                 <label>End</label>
-                <input type="date" class="input mb-10 input-date-proj" id="id_datee">
+                <input type="date" onchange="changeDisabled()" class="input mb-10 input-date-proj" id="id_datee">
             </div>
             <h6>Tasks</h6>
             <button id="btn_show_task" onclick="showArea()">Add task</button>
@@ -44,7 +45,7 @@
                 <button class="btn add-task-for-proj">+</button>
             </div>
             <div class="in-middle">
-                <button class="bubbly-button mt-20" id="submitGoal" onclick="submitGoals()">Save</button>
+                <button class="bubbly-button mt-20" id="submitGoal" onclick="submitGoals()" disabled>Save</button>
             </div>
         </div>
         <div class="project-details col-block">

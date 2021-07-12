@@ -20,5 +20,12 @@ class UserTransaction
                             'password' => $user->getPassword(),
                             'email' => $user->getEmail())) or die(print_r($req->errorInfo(), true));
     }
+
+    public function getUserById($id){
+        $req= $this->_db->query('SELECT * FROM user WHERE id='.$id);
+        $donnees= $req->fetch();
+        return $donnees;
+
+    }
 }
 ?>

@@ -21,8 +21,7 @@
             $password= sha1($password);
             while($donnees=$req->fetch()) {
                 if($username == $donnees['username'] && $password==$donnees['password']){
-                    echo "Mitovy";
-                    Header('Location:../../View/Task/index.php');
+                    Header('Location:../../View/Task/index.php?userid='.$donnees['id']);
                 }
                 else{
                     echo('Username or password incorrect');
