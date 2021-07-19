@@ -1,0 +1,15 @@
+html,
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+#footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    min-height:80px;   /* Height of the footer */
+    box-shadow: rgb(136 165 191 / 48%) 6px 2px 16px 0px, rgb(255 255 255 / 80%) -6px -2px 16px 0px;
+    background-color: #fff;
+}
