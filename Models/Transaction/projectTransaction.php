@@ -33,8 +33,8 @@ class ProjectTransaction
         return $donnees;
     }
 
-    public function getAllProject(){
-        $req= $this->_db->query('SELECT * FROM project ORDER BY id DESC LIMIT 0,3');
+    public function getAllProject($user){
+        $req= $this->_db->query('SELECT * FROM project WHERE user='.$user.' ORDER BY id DESC LIMIT 0,3');
         $donnees= $req->fetchAll(PDO::FETCH_ASSOC);
         return $donnees;
     }

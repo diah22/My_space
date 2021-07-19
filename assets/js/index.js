@@ -2,6 +2,7 @@ const xhr= getXMLHttpRequest();
 const listI= document.querySelector('.list-item');
 let todoItem = {
     items: [], //tableau contenant all items
+    user:0,
     addItem: function(item){
       this.items.push(item);
       return this;
@@ -56,11 +57,13 @@ function addSingleTodo(){
 
 
 function addItem(){
+  const user= document.getElementById('id_user').value;
+  todoItem.user= user;
 	xhr.onreadystatechange= function(){
 		if(xhr.readyState==4 &&(xhr.status==200 || xhr.status==0)){
       //alert(xhr.responseText);
       
-      window.location.assign('../../View/Task/index.php');
+      window.location.assign('../../View/Task/index.php?userid='+user);
 		}
 	};
   todo= JSON.stringify(todoItem);

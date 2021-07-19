@@ -21,7 +21,9 @@
 <body>
 <?php include_once('../Utils/headers.php');
       include_once('../Utils/nav.php');
+      
  ?>
+ 
  <div class="container">
 
 <div class="content">
@@ -32,23 +34,7 @@
         <input type="date" class="input-20" onChange="searchtask(this.value)">
         <button class="btn"><img class="icon" src="../../assets/icon/search-1.png"></button>
     </div>
-    <!-- <div class="modal modal-task">
-        <div class="modal-content">
-            <div class="space-between">
-                <h3>Add task<h3>
-                <a onclick=closemodal() style="justify-content:space-between"><span class="close">&times;</span></a>
-            </div>
-            <input type="text" id="item" class="input modal-content-container" placeholder="Doing ... ">
-            <button class="btn-rounded btn-size-icon" onclick="addSingleTodo()">+</button>
-            <div class="list-todo">
-                <ul class="list-item">
-
-                </ul>
-                <button class="bubbly-button btn-modal" id="submitTodo" disabled>Valider</button>
-            </div>
-            
-        </div>
-    </div> -->
+   
     <div id="openModal" class="modalDialog">
         <div> 
             <div class="space-between">
@@ -58,6 +44,7 @@
             </div>
             <div class="space-between">
                 <input type="text" id="item" class="input modal-content-container" placeholder="Doing ... ">
+                <input style="display:none" id="id_user" value="<?php echo $userId; ?>">
                 <button class="btn-rounded btn-size-icon" onclick="addSingleTodo()">+</button>
             </div>
             

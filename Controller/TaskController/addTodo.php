@@ -19,8 +19,8 @@
                $todoItem= json_decode($_GET['todo']);
                $date= date('y-m-d');
                $default_stat= 'N';
-               $user=1;
                
+               $user= $todoItem->user;
                $items= $todoItem->items;
                foreach($items as $item){
                    $task->setContenu($item);
@@ -28,6 +28,7 @@
                    $task->setUser($user);
                    $task->setStatut($default_stat);
                    $taskT->addTask($task);
+
                }
                Header('Location:../../View/Task/index.php');
             }

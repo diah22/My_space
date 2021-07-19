@@ -12,7 +12,7 @@
             $this->_bdd= $this->_con->connectDb();
         }
 
-        public function addEvent($heured, $heuref, $descri, $date){
+        public function addEvent($heured, $heuref, $descri, $date, $user){
             $event= new Event();
             $bdd= $this->_bdd;
             $eventT = new EventTransaction($bdd);
@@ -20,16 +20,17 @@
             $event->setHeureFin($heuref);
             $event->setDescri($descri);
             $event->setDate($date);
+            $event->setUser($user);
             $eventT->addEvent($event);
             Header('Location:../../View/Event/index.php'); //reste à savoir comment ajouter un notif
             // $success=1;
             // return $success;
         }
 
-        public function getAllevent(){
+        public function getAllevent($user){
             $bdd= $this->_bdd;
             $eventT= new EventTransaction($bdd);
-            $donnes= $eventT->getAllEvent();
+            $donnes= $eventT->getAllEvent($user);
             return $donnes;
         }
     }

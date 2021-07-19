@@ -13,6 +13,6 @@
    <p><img class="img-icon" style="float:right;" src="../../assets/icon/user1.png"></p>
   <!-- <button class="dropbtn" style="float:right;"></button> -->
   <div class="dropdown-content">
-    <a href="../../index.php">Log out</a>
+    <a href="../../Controller/DefaultController/logout.php">Log out</a>
   </div>
 </div>

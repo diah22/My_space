@@ -9,15 +9,16 @@ class EventTransaction
     }
 
     public function addEvent(Event $event){
-        $req= $this->_db->prepare('INSERT INTO event( heure_deb,  heure_fin ,date,descri) VALUES (:heureDeb, :heureFin,:date, :descri)');
+        $req= $this->_db->prepare('INSERT INTO event( heure_deb,  heure_fin ,date,descri,user) VALUES (:heureDeb, :heureFin,:date, :descri,:user)');
         $req->execute(array('heureDeb' => $event->getHeureDeb(),
                                 'heureFin' => $event->getHeureFin(),
                                 'date' => $event->getDate(),
-                                'descri' => $event->getDescri())) or die(print_r($req->errorInfo(), true)) ;
+                                'descri' => $event->getDescri(),
+                                'user' => $event->getUser())) or die(print_r($req->errorInfo(), true)) ;
     }
 
-    public function getAllEvent(){
-        $req= $this->_db->query('SELECT * FROM event ORDER BY date asc');
+    public function getAllEvent($user){
+        $req= $this->_db->query('SELECT * FROM event WHERE user='.$user.' ORDER BY date asc');
         $donnees= $req->fetchAll(PDO::FETCH_ASSOC);
         return $donnees;
     }

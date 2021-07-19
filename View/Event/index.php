@@ -1,15 +1,15 @@
 <?php
 session_start();
     include('../../Controller/EventController/eventController.php');
-
+    $userId= $_GET['userid'];
     $eventC= new EventController();
-    $donnees= $eventC->getAllevent();
+    $donnees= $eventC->getAllevent($userId);
     if(isset($_POST['savevent'])){
         $heured= $_POST['heured'];
         $heuref= $_POST['heuref'];
         $descri= $_POST['descri'];
         $date= $_POST['date'];
-        $eventC->addEvent($heuref, $heured, $descri, $date);
+        $eventC->addEvent($heuref, $heured, $descri, $date, $userId);
     }
 ?>
 <!DOCTYPE html>

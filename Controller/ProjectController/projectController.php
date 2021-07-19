@@ -26,10 +26,10 @@
             return $success;
         }
 
-        public function getAllProject(){
+        public function getAllProject($user){
             $bdd= $this->_bdd;
             $projectT= new ProjectTransaction($bdd);
-            $donnes= $projectT->getAllProject();
+            $donnes= $projectT->getAllProject($user);
             return $donnes;
             // var_dump($donnes);
             // die;

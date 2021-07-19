@@ -3,13 +3,14 @@ session_start();
     include_once('../../Controller/ProjectController/projectController.php');
     include_once('../../Models/Transaction/Utils.php');
     $projectC= new ProjectController();
-    $donnees= $projectC->getAllProject();
+    $userId= $_GET['userid'];
+    $donnees= $projectC->getAllProject($userId);
     if(isset($_POST['addProject'])){
         $title= $_POST['title'];
         $descri= $_POST['descri'];
         $datel= $_POST['datel'];
         $default_statut= 'N';
-        $user= 1;
+        $user= $userId;
         $result= $projectC->addProject($title, $descri, $default_statut, $datel, $user);
     }
 ?>
