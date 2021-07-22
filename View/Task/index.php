@@ -9,6 +9,7 @@
     $userC= new UserController();
     $user= $userC->getUserById($userId);
     $tasks= $taskC->getAllTaskByDate($cdate);
+    $datecurrent= new DateTime();
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +32,7 @@
         <h2><?php echo $tdate ?></h2>
     </div>
     <div class="content-header-right">
-        <input type="date" class="input-20" onChange="searchtask(this.value)">
+        <input type="date" id="search-date" class="input-20" onChange="searchtask(this.value)">
         <button class="btn"><img class="icon" src="../../assets/icon/search-1.png"></button>
     </div>
    
@@ -55,7 +56,6 @@
                 <div class="in-middle">
                     <button class="bubbly-button btn-modal" id="submitTodo" disabled>Valider</button>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -66,7 +66,6 @@
             ?>
             <div class="content-body no-task">
                 <p>No task for today . Do you want to add new task?</p><br>
-                
                 <img alt="task" class="task-bgimage" src="../../assets/images/task-1.jpg"> 
                 <a class="bubbly-button" id="modal-task" style="text-decoration:none" href="#openModal">Add task</a>
             <?php
@@ -130,22 +129,14 @@
 <script>
     const modal= document.querySelector('.modal');
     const container= document.querySelector('.container');
+    let dateCurrent= new Date();
     document.getElementById('modal-task').addEventListener('click', function(){
         document.querySelector("body").style.overflow = 'hidden';
     });
     document.querySelector('.close').addEventListener('click'; function(){
         document.querySelector("body").style.overflow = 'visible';
     });
-    // function showmodal(){  
-    //     modal.style.display= 'block';
-    //     // container.style.background='#cccccc';
-    // }
 
-    // function closemodal(){
-    //     modal.style.display='none';
-    //     // modal.style.marginTop= '-700px';
-    //     container.style.background='#fff';
-    // }
 
     
 </script>

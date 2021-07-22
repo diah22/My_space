@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="assets/css/utils.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <style>
+
         .login{
             box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-            min-width:56%;
-            min-height:50%;
             padding:30px;
+        }
+
+        .home-page{
+            display: grid;
+            grid-template-columns: 40% 65%; 
+            grid-template-rows: auto;
+            grid-column-gap: 10px;
         }
         
     </style>
@@ -25,17 +31,17 @@
             <li class="right"></li>
         </ul>
         <div class="content">
-            <div class="row home-page">
-                <div class="image-content">
+            <div class="home-page">
+                <div class="home-c image-content">
                     <img src="assets/images/login.jpg">
                 </div>
-                <div class="login">
+                <div class="home-c login">
                     <form method="post" action="Controller/DefaultController/getAllUser.php">
                     <div class="in-middle">
                         <h4> Signin</h4>
                     </div>
                         <input type="text" name="username" class="input modal-content-container" placeholder="Username">
-                        <input type="text" name="password" class="input modal-content-container" placeholder="Password">
+                        <input type="password" name="password" class="input modal-content-container" placeholder="Password">
                         <div class="in-middle mt-30">
                             <button class="bubbly-button btn-modal" type="submit">Signin</button>
                         </div>

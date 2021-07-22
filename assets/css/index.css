@@ -20,7 +20,7 @@ body{
 
 
 .content .content-body{
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
     height: auto;
@@ -429,4 +429,29 @@ label.input-label {
   display: flex;
   /* justify-content: right; */
   justify-content: space-between;
+}
+
+.e-container{
+  padding: 5px;
+  background-color: rgba(30, 39, 51, 0.2);
+  margin-left: 30px;
+  margin-right: 30px;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: #000;
+  height: 50px;
+}
+
+
+.e-container p{
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+.e-container span{
+  position: absolute;
+  top: 0;
+  right: 0;
 }

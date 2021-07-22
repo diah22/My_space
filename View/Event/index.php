@@ -9,7 +9,8 @@ session_start();
         $heuref= $_POST['heuref'];
         $descri= $_POST['descri'];
         $date= $_POST['date'];
-        $eventC->addEvent($heuref, $heured, $descri, $date, $userId);
+        $user= $userId;
+        $eventC->addEvent($heuref, $heured, $descri, $date, $user);
     }
 ?>
 <!DOCTYPE html>
@@ -59,14 +60,20 @@ session_start();
         </div>
         <div id="show-all-event" class="col-ev">
            <h4>All event</h4>
+           <div class="event-content">
            <?php
                 foreach($donnees as $donnee)
                 {
                     ?>
-                    <p><?php echo $donnee['descri']?><p>
+                    <div class="e-container mb-20">
+                        <p><?php echo $donnee['descri']?><p>
+                        <span><?php echo $donnee['date']?></span>
+                    </div>
                     <?php
+                   
                 }
            ?>
+           </div>
         </div>
     </div>
     </div>

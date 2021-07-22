@@ -3,6 +3,7 @@ session_start();
     include_once('../../Controller/ProjectController/projectController.php');
     include_once('../../Models/Transaction/Utils.php');
     $projectC= new ProjectController();
+   
     $userId= $_GET['userid'];
     $donnees= $projectC->getAllProject($userId);
     if(isset($_POST['addProject'])){
@@ -52,7 +53,7 @@ session_start();
                         <div class="card-footer">
                             
                         <p><span><?php echo Utils::getState($donnee['statut']); ?></span></p>
-                            <a href="details.php?id=<?php echo $donnee['id'];?>" class="btn-outline card-footer-content">More details</a>
+                            <a href="details.php?id=<?php echo $donnee['id'];?>&userid=<?php echo $userId ?>" class="btn-outline card-footer-content">More details</a>
                         </div>
                     </div>
                 <?php

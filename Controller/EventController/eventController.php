@@ -22,7 +22,7 @@
             $event->setDate($date);
             $event->setUser($user);
             $eventT->addEvent($event);
-            Header('Location:../../View/Event/index.php'); //reste à savoir comment ajouter un notif
+            Header('Location:../../View/Event/index.php?userid='.$user); //reste à savoir comment ajouter un notif
             // $success=1;
             // return $success;
         }

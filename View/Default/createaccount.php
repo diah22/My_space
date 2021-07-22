@@ -17,10 +17,16 @@ if(isset($_GET['response']) && $_GET['response']!='')
     <style>
         .login{
             box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-            min-width:56%;
-            min-height:50%;
             padding:30px;
         }
+        
+        .home-page{
+            display: grid;
+            grid-template-columns: 40% 65%; 
+            grid-template-rows: auto;
+            grid-column-gap: 10px;
+        }
+
         
     </style>
     <title>Project</title>
@@ -31,33 +37,12 @@ if(isset($_GET['response']) && $_GET['response']!='')
   <li class="right"></li>
  
 </ul>
-
-
-    <!-- <div class="content">
-        <div class="row home-page">
-        <div class="image-content">
-            <img src="../../assets/images/login.jpg">
-            </div>
-            <div class="login">
-                <form method="post" action="../../Controller/DefaultController/createuser.php">
-                    <h4>Create account</h4>
-                    <input type="text" name="username" class="input modal-content-container" placeholder="Username">
-                    <input type="text" name="email" class="input modal-content-container" placeholder="Email">
-                    <input type="password" name="pass1" class="input modal-content-container" placeholder="Password">
-                    <input type="password" name="pass2" class="input modal-content-container" placeholder="Confirm password">
-                <button class="bubbly-button btn-modal" name="createuser" type="submit">Signup</button>
-                </form>
-                <p>Have you already an account? Please<a href="index.php">signin here</a></p>
-            </div>
-        <div>
-    </div> -->
-
     <div class="content">
-            <div class="row home-page">
-                <div class="image-content">
+    <div class="home-page">
+                <div class="home-c image-content">
                     <img src="../../assets/images/login.jpg">
                 </div>
-                <div class="login" style="margin-left:110px">
+                <div class="home-c login">
                     <form method="post" action="../../Controller/DefaultController/createuser.php">
                         <div class="in-middle">
                         <h4> Create account</h4>
@@ -65,14 +50,13 @@ if(isset($_GET['response']) && $_GET['response']!='')
                        
                         <input type="text" name="username" class="input modal-content-container" placeholder="Username">
                         <input type="text" name="email" class="input modal-content-container" placeholder="Email">
-                        <input type="text" name="password" class="input modal-content-container" placeholder="Password">
-                        <input type="text" name="confpass" class="input modal-content-container" placeholder="Confirm Password">
+                        <input type="password" name="password" class="input modal-content-container" placeholder="Password">
+                        <input type="password" name="confpass" class="input modal-content-container" placeholder="Confirm Password">
                         <div class="in-middle mt-20">
                             <button class="bubbly-button btn-modal" type="submit">Signup</button>
                         </div>
                         <p>Have you already an account? Please<a href="../../index.php">Signin here</a></p>
                     </form>
-        
                 </div>
             </div>
         </div>

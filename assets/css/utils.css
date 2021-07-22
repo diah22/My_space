@@ -3,6 +3,7 @@ body{
   --gray-color:#ededed;
   --white-color:#fff; */
   --nav-height:44px;
+  overflow-x: hidden;
 }
 .topnav {
   margin: 0;

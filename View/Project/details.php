@@ -1,10 +1,14 @@
 <?php
     session_start();
     include_once('../../Controller/ProjectController/projectController.php');
+    include_once('../../Controller/DefaultController/defaultController.php');
     include_once('../../Models/Transaction/Utils.php');
+
     $projectC= new ProjectController();
+    $dc= new DefaultController();
+    $state = $dc->getState();
     $task_num=0;
-    
+    $userId = $_GET['userid'];
     if(isset($_GET['id']) && $_GET['id']!==''){
         $id=$_GET['id'];
         $donnee= $projectC->getProjectById($id);
@@ -50,13 +54,26 @@
         </div>
         <div class="project-details col-block">
             <label>Title: </label>
+            <input type="hidden" id="user" value="<?php echo $donnee['user']?>">
             <input type="text" class="no-edit mb-20" id="id_nom" value="<?php echo $donnee['nom']?>" readonly>
             <input type="hidden" id="id_proj" value="<?php echo $donnee['id']?>">
             <label>Description:</label>
-            <textarea class="no-edit mb-20" od="id_descri" cols="30" readonly><?php echo $donnee['description'] ?></textarea>
+            <textarea class="no-edit mb-20" id="id_descri" cols="30" readonly><?php echo $donnee['description'] ?></textarea>
             <label>State: </label><br>
-            <select class="no-edit mb-20" id="id_state" readonly>
-                <option value="<?php echo $donnee['statut']?>" default><?php echo $donnee['statut']?></option>
+            <select class="no-edit mb-20" id="id_state" disabled>
+                <?php
+                    foreach($state as $stt){
+                        ?>
+                            <option value="<?php echo $stt['id']?>" <?php
+                                if($stt['id'] == $donnee['statut']){
+                                    echo "selected";
+                                }
+                            ?>>
+                            <?php echo $stt['libelle']?>
+                            </option>
+                        <?php
+                    }
+                ?>
             </select><br>
             <label>Deadline: </label>
             <input class="no-edit mb-20" id="id_deadl" type="date" value="<?php echo $donnee['date_limite']?>" readonly>
@@ -77,15 +94,16 @@
         {
             let id= document.getElementById('id_proj').value;
             let deadline= document.getElementById('id_deadl').value;
-            let descri= 'ok';
+            let descri= document.getElementById('id_descri').value;
             let nom= document.getElementById('id_nom').value;
             let state= document.getElementById('id_state').value;
+            let user= document.getElementById('user').value;
 
             nom= encodeURIComponent(nom);
             descri= encodeURIComponent(descri); // remains text form
             xhr.onreadystatechange= function(){
                 if(xhr.readyState==4 && (xhr.status == 200 ||xhr.status == 0)){
-                    window.location.assign('../../View/Project/details.php?id='+id);
+                    window.location.assign('../../View/Project/details.php?id='+id+'&userid='+user);
                 }
             }
             xhr.open("POST", "../../Controller/ProjectController/modifProject.php", true);
@@ -101,10 +119,10 @@
             no.classList.add('input');
             no.removeAttribute('readonly');
         });
+        document.getElementById('id_state').removeAttribute('disabled');
         modifbtn.classList.remove('c-green');
         modifbtn.classList.add('c-red');
     }
-
     const addTaskBtn= document.querySelector('.add-task-for-proj');
     addTaskBtn.addEventListener('click', addNewTaskArea);
 
