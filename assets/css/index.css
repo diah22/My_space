@@ -6,11 +6,17 @@ body{
 /* ------------------------------------- HOME PAGE -----------------------------------------------*/
 
 .notification{
-  background-color:rgb(154, 243, 201); 
-  color:rgb(14, 49, 21);
   width: auto; 
   height : 35px;
   padding:10px
+}
+.notification.success{
+  background-color:rgba(195, 247, 223, 0.938); 
+  color:rgb(14, 49, 21);
+}
+.notification.error{
+  background-color:rgba(241, 186, 177, 0.945); 
+  color:rgb(219, 5, 5);
 }
 /* ---------------------------------------TASK -----------------------------------------------------*/
 .content .content-header-left{

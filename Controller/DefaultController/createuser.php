@@ -49,7 +49,11 @@
             }
             // $response= json_encode($response);
             // return $response;
-            Header('Location:../../View/Default/createaccount.php?response='.$response);
+            // var_dump($response['state']);
+            // die;
+            // print_r($response['state']);
+            $response_json = json_encode($response);
+            Header('Location:../../View/Default/createaccount.php?response='.$response_json);
         }
     }
     $createuser= new CreateUser();
