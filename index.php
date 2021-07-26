@@ -52,9 +52,8 @@
             </div>
         </div>
         <div class="footer" id="footer">
-            
-            </div>
-        
+            <p><a href="https://diam-wit.com">diam-wit.com</a> est hébergé par <a href="https://www.simafri.com/fr/hebergement-web-gratuit/">Simafri</a></p>    
+        </div>   
     </div>
    
 </body>

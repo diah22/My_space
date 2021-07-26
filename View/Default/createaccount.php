@@ -1,10 +1,4 @@
-<?php 
-if(isset($_GET['response']) && $_GET['response']!='')
-{
-    $response= $_GET['response'];
-    echo $response['state'];
-}
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +27,23 @@ if(isset($_GET['response']) && $_GET['response']!='')
 </head>
 <body>
 <ul class="topnav" style="height:50px">
- 
   <li class="right"></li>
- 
 </ul>
+<?php 
+if(isset($_GET['response']) && $_GET['response']!='')
+{
+    $response = $_GET['response'];
+    // $response = json_decode($response);
+    var_dump($response['message']);
+    die;
+    print_r($response['message']);
+    include('../Utils/notif.php');
+    // $response= $_GET['response'];
+    // echo $response['state'];
+    // Header('Location:../../index.php');
+}
+?>
+
     <div class="content">
     <div class="home-page">
                 <div class="home-c image-content">

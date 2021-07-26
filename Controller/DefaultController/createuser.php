@@ -13,10 +13,7 @@
         }
 
         public function addUser(){
-            $response= [
-                'state' => '',
-                'message' => ''
-            ];
+    
         
             if(isset($_POST['username']) && $_POST['username']!==''){
                 $username= $_POST['username'];
@@ -32,10 +29,10 @@
             }
         
             if($pass1 != $pass2){
-                $response= [
+                $response= array(
                     'state' => 'error',
                     'message' => 'Two password doesn\' t match'
-                ];
+                );
             }
             else{
                 $user= new User();
@@ -45,11 +42,12 @@
                 $user->setEmail($email);
                 $user->setPassword($pass1);
                 $userT->addUser($user);
-                $response= [
-                    'state' => 'success',
-                    'message' => 'Registration successfull'
-                ];
+                $response= array(
+                    "state" => "success",
+                    "message" => "Registration successfull"
+                );
             }
+            // $response= json_encode($response);
             // return $response;
             Header('Location:../../View/Default/createaccount.php?response='.$response);
         }
