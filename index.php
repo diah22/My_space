@@ -9,18 +9,6 @@
     <link rel="stylesheet" href="assets/css/utils.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <style>
-
-        .login{
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-            padding:30px;
-        }
-
-        .home-page{
-            display: grid;
-            grid-template-columns: 40% 65%; 
-            grid-template-rows: auto;
-            grid-column-gap: 10px;
-        }
         
     </style>
     <title>Project</title>
@@ -52,9 +40,14 @@
             </div>
         </div>
         <div class="footer" id="footer">
-            <p><a href="https://diam-wit.com">diam-wit.com</a> est hébergé par <a href="https://www.simafri.com/fr/hebergement-web-gratuit/">Simafri</a></p>    
+            <p>
+                <a href="https://diam-wit.com">diam-wit.com</a> est hébergé par <a href="https://www.simafri.com/fr/hebergement-web-gratuit/">Simafri</a>
+                <img alt="logo-simafri" class="logo" src="assets/images/simafri.png">
+            </p>    
+           
         </div>   
     </div>
+  
    
 </body>
 <script>

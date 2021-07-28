@@ -18,6 +18,21 @@ body{
   background-color:rgba(241, 186, 177, 0.945); 
   color:rgb(219, 5, 5);
 }
+.footer > p{
+  text-align: center; 
+  font-size:12px;
+  font-style: italic;
+}
+.footer p a{
+  color: rgb(32, 166, 207);
+  text-decoration: none;
+}
+
+.logo{
+  width: 30px;
+  height:30px;
+}
+
 /* ---------------------------------------TASK -----------------------------------------------------*/
 .content .content-header-left{
   width: 100%;

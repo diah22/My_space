@@ -9,19 +9,6 @@
     <link rel="stylesheet" href="../../assets/css/utils.css">
     <link rel="stylesheet" href="../../assets/css/home.css">
     <style>
-        .login{
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-            padding:30px;
-        }
-        
-        .home-page{
-            display: grid;
-            grid-template-columns: 40% 65%; 
-            grid-template-rows: auto;
-            grid-column-gap: 10px;
-        }
-
-        
     </style>
     <title>Project</title>
 </head>
@@ -39,7 +26,7 @@ if(isset($_GET['response']) && $_GET['response']!='')
     // print_r($data_response -> state);    
     ?>
     <div class="notification <?php echo $data_response -> state; ?>">
-        <?php echo $data_response -> message; ?>
+      ✔ ⋯ ☓ … ╳<?php echo $data_response -> message; ?>
     <div>
     <?php
 }
