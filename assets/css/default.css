@@ -385,6 +385,10 @@ td, th {
 .row{
     display: flex;
 }
+/* row */
+.card-row{
+    display: flex;
+}
 
 /* col */
 .col{
@@ -399,4 +403,9 @@ td, th {
 .img-icon{
     width: 40px;
     height: 40px;
+}
+
+/* css for text */
+.text-center{
+    text-align: center;
 }

@@ -12,9 +12,7 @@
             $this->_bdd= $this->_con->connectDb();
         }
 
-        public function addUser(){
-    
-        
+        public function addUser(){    
             if(isset($_POST['username']) && $_POST['username']!==''){
                 $username= $_POST['username'];
             }

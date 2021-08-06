@@ -24,6 +24,7 @@ session_start();
     <link rel="stylesheet" href="../../assets/css/default.css">
     <link rel="stylesheet" href="../../assets/css/index.css">
     <link rel="stylesheet" href="../../assets/css/utils.css">
+    <link rel="stylesheet" href="../../assets/css/home.css">
     <title>Project</title>
 </head>
 <body>
@@ -38,7 +39,7 @@ session_start();
             <div class="col col-end">
                 <button id="toggle" class="bubbly-button">Add new project</button>       
             </div>
-            <div class="cards row">
+            <div class="cards card-row">
             <?php
                 foreach($donnees as $donnee){
                     ?>
@@ -69,9 +70,7 @@ session_start();
                 <label for="title">Title</label><br>
                 <input type="text" name="title" class="input"><br>
                 <label for="title">Description</label><br>
-                <textarea class="input" name="descri" cols=40 rows=6 >
-
-                </textarea><br>
+                <textarea class="input" name="descri" cols=40 rows=6 ></textarea><br>
                 <label for="title">Deadline</label><br>
                 <input type="date" name="datel" class="input">
                 <button class="bubbly-button btn-submit-project" name="addProject" type="submit">Valider</button>

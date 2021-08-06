@@ -6,6 +6,8 @@
     class GetUser{
         private $_bdd;
         private $_con;
+        private $is_authentified= false;
+        private $user_id;
 
         public function __construct(){
             $this->_con= new Connexion();
@@ -21,12 +23,20 @@
             $password= sha1($password);
             while($donnees=$req->fetch()) {
                 if($username == $donnees['username'] && $password==$donnees['password']){
-                    Header('Location:../../View/Task/index.php?userid='.$donnees['id']);
+                    $this->is_authentified = true;
+                    $this->user_id = $donnees['id'];
                 }
-                else{
-                    echo('Username or password incorrect');
-                } 
             }
+            $not_auth= array(
+                'state' => 'error',
+                'message' => 'The username or the password doesn\' t exist'
+            );
+
+            $not_auth_json = json_encode($not_auth);
+
+            $this->is_authentified ? 
+                 Header('Location:../../View/Task/index.php?userid='. $this->user_id) :
+                     Header('Location:../../index.php?auth-error='.$not_auth_json);
         }
     }
     $getUser= new GetUser();

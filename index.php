@@ -18,6 +18,20 @@
         <ul class="topnav" style="height:50px">
             <li class="right"></li>
         </ul>
+        <?php 
+            if(isset($_GET['auth-error']) && $_GET['auth-error']!='')
+            {
+                $data_response= json_decode($_GET['auth-error']);
+                // var_dump($data_response -> state);
+                // die;
+                // print_r($data_response -> state);    
+                ?>
+                <div class="notification <?php echo $data_response -> state; ?>">
+                ✔ ⋯ ☓ … ╳<?php echo $data_response -> message; ?>
+                <div>
+                <?php
+            }
+            ?>
         <div class="content">
             <div class="home-page">
                 <div class="home-c image-content">

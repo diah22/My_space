@@ -4,11 +4,13 @@ body{
   --white-color:#fff; */
   --nav-height:44px;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 .topnav {
   margin: 0;
   margin-right: 20px;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #0e618f;
   z-index: 999;
   height: var(--nav-height);
@@ -51,8 +53,9 @@ ul.topnav li.right {float: right;}
 
 .content{
     margin: 3%;
+    /* margin-top: 70px; */
     width: 80%;
-    display: block;
+    /* display: block; */
     /* justify-content: center; */
 }
 

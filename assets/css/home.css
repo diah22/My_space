@@ -26,13 +26,39 @@ body {
     grid-template-rows: auto;
     grid-column-gap: 10px;
 }
+
 @media only screen and (max-width: 900px){
    .home-page{
        display: grid;
        grid-template-columns: 100%;
-
    }
    .home-c.image-content{
        display: none;
-   }
+    }
+   /* .content-header-right{
+       display: none;
+    } */
+}
+
+@media only screen and (max-width : 800px){ 
+    .input-date-task{
+      width: 75%;
+    }
+    .card-row{
+        display: block;
+    }
+    .card-row .card{
+        width: 50%;
+    }
+
+}
+
+@media only screen and (max-width : 600px){ 
+    .card-row{
+        display: block;
+    }
+    .card-row .card{
+        width: 100%;
+        margin-bottom: 50px;
+    }
 }
