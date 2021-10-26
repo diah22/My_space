@@ -1,71 +1,97 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="stylesheet" href="assets/css/signin.css">
     <link rel="stylesheet" href="assets/css/default.css">
-    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/utils.css">
-    <link rel="stylesheet" href="assets/css/home.css">
     <style>
-        
     </style>
-    <title>Project</title>
+    <title> MySpace </title>
 </head>
 <body>
-    <div class="home-container">
-        <ul class="topnav" style="height:50px">
-            <li class="right"></li>
-        </ul>
-        <?php 
+<?php 
             if(isset($_GET['auth-error']) && $_GET['auth-error']!='')
             {
                 $data_response= json_decode($_GET['auth-error']);
                 // var_dump($data_response -> state);
                 // die;
-                // print_r($data_response -> state);    
+                // print_r($data_response -> state);
+                // print_r($data_response -> state);    ✔ ⋯ ☓ … ╳
                 ?>
-                <div class="notification <?php echo $data_response -> state; ?>">
-                ✔ ⋯ ☓ … ╳<?php echo $data_response -> message; ?>
-                <div>
+                <div id="toast" class="<?php echo $data_response -> state; ?>">
+                    <div id="img">✔</div>
+                    <div id="desc">
+                        <?php  echo $data_response -> message; ?>
+                    </div>
+                </div>
                 <?php
             }
             ?>
-        <div class="content">
-            <div class="home-page">
-                <div class="home-c image-content">
-                    <img src="assets/images/login.jpg">
+
+<!-- <button onclick="launch_toast()">Show Toast</button> -->
+<div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form method="post" action="Controller/UserController/createUser.php">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <div class="home-c login">
-                    <form method="post" action="Controller/DefaultController/getAllUser.php">
-                    <div class="in-middle">
-                        <h4> Signin</h4>
-                    </div>
-                        <input type="text" name="username" class="input modal-content-container" placeholder="Username">
-                        <input type="password" name="password" class="input modal-content-container" placeholder="Password">
-                        <div class="in-middle mt-30">
-                            <button class="bubbly-button btn-modal" type="submit">Signin</button>
-                        </div>
-                        
-                        <p>You don't have any account ? <a href="View/Default/createaccount.php">Let'create a new account</a></p>
-                    </form>
+                <span>or use your email for registration</span>
+                <input type="text" class="input" name="username" placeholder="Username" />
+                <input type="email" class="input" name="email" placeholder="Email" />
+                <input type="password" class="input" name="password" placeholder="Password" />
+                <input type="password" class="input" name="confpass" placeholder="Confirm Password" />
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="Controller/SecurityController/getAllUser.php" method="post">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input class="input" type="text" placeholder="Username" name="username"/>
+                <input class="input" type="password" placeholder="Password" name="password"/>
+                <a href="#">Forgot your password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome to MySpace!</h1>
+                    <p>Login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>You don't have any account ? </h1>
+                    <p>Let'create a new account</a></p>
+                    <button class="ghost" id="signUp">Sign Up</button>
                 </div>
             </div>
         </div>
-        <div class="footer" id="footer">
-            <p>
-                <a href="https://diam-wit.com">diam-wit.com</a> est hébergé par <a href="https://www.simafri.com/fr/hebergement-web-gratuit/">Simafri</a>
-                <img alt="logo-simafri" class="logo" src="assets/images/simafri.png">
-            </p>    
-           
-        </div>   
     </div>
-  
-   
 </body>
 <script>
-   
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
 </script>
-<!-- <script src="../../assets/js/modal.js"></script> -->
+<script src="assets/js/utils.js"></script>
 </html>

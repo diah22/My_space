@@ -1,65 +1,83 @@
 <?php
-    session_start();
-    $userId= $_GET['userid'];
     include_once('../../Controller/TaskController/taskController.php');
-    include_once('../../Controller/UserController/userController.php');
+    include_once('../../Models/Transaction/taskTransaction.php');
     $cdate= date("Y-m-d");
     $tdate= date('l d');
     $taskC= new TaskController();
-    $userC= new UserController();
-    $user= $userC->getUserById($userId);
     $tasks= $taskC->getAllTaskByDate($cdate);
     $datecurrent= new DateTime();
 ?>
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../assets/css/index.css"> 
-<link rel="stylesheet" href="../../assets/css/default.css"> 
-<link rel="stylesheet" href="../../assets/css/utils.css"> 
-<link rel="stylesheet" href="../../assets/css/home.css"> 
-</head>
-<body>
-<?php include_once('../Utils/headers.php');
-      include_once('../Utils/nav.php');
- ?>
- 
-    <div class="container">
-        <div class="content">
-            <div class="content-section">
-                <div class="content-header-left">
-                    <h2><?php echo $tdate ?></h2>
-                </div>
-                <div class="content-header-right">
-                    <div class="card-trans-header">
-                        <input type="date" id="search-date" class="input input-date-task" onChange="searchtask(this.value)">
-                        <!-- <button class="btn"><img class="icon" src="../../assets/icon/search-1.png"></button> -->
-                    </div>
-                    <div class="card-trans-body">
-                        <div id="openModal" class="modalDialog">
-                            <div class="space-between">
-                                <h3>Add task<h3>
-                                <a href="#close" title="Close" class="close"><span style="font-size:16px">X</span></a>
-                                <!-- <a onclick=closemodal() style="justify-content:space-between"><span class="close">&times;</span></a> -->
-                            </div>
-                            <div class="space-between">
-                                <input type="text" id="item" class="input modal-content-container" placeholder="Doing ... ">
-                                <input style="display:none" id="id_user" value="<?php echo $userId; ?>">
-                                <button class="btn-rounded btn-size-icon" onclick="addSingleTodo()">+</button>
-                            </div>
-                            
-                            <div class="list-todo">
-                                <ul class="list-item">
+<html lang="en">
 
-                                </ul>
-                                <div class="in-middle">
-                                    <button class="bubbly-button btn-modal" id="submitTodo" disabled>Valider</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-body">
-                            <div class="task-area">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../../assets/css/index.css" rel="stylesheet" />
+    <link href="../../assets/css/default.css" rel="stylesheet" />
+    <title>Task</title>
+<!--
+
+Comparto TemplateMo
+
+https://templatemo.com/tm-544-comparto
+
+-->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="tm-site-header tm-mb-1">
+            <div class="tm-site-name-container tm-bg-linear">
+                <h1 class="tm-text-white">MySpace</h1>
+            </div>
+            <div class="tm-nav-container tm-bg-color-1">
+                <nav class="tm-nav" id="tm-nav">
+                    <ul>
+                        <li class="tm-nav-item">
+                            <a href="../Utils/dashboard.php" class="tm-nav-link">
+                                <!-- <span class="tm-mb-1"></span> -->
+                                <img src="../../assets/icons/time.png">
+                                <span class="tm-nav-item-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="tm-nav-item current">
+                            <a href="#services" class="tm-nav-link">
+                                <!-- <span class="tm-mb-1">.02</span> -->
+                                <img src="../../assets/icons/time.png" alt="">
+                                <span class="tm-nav-item-menu">Task</span>
+                            </a>
+                        </li>
+                        <li class="tm-nav-item">
+                            <a href="#services" class="tm-nav-link">
+                                <!-- <span class="tm-mb-1">.02</span> -->
+                                <img src="../../assets/icons/event.png" alt="">
+                                <span class="tm-nav-item-menu">Project</span>
+                            </a>
+                        </li>
+                        <li class="tm-nav-item">
+                            <a href="#gallery" class="tm-nav-link">
+                                <!-- <span class="tm-mb-1">.03</span> -->
+                                <img src="../../assets/icons/event.png" alt="">
+                                <span class="tm-nav-item-menu">Event</span>
+                            </a>
+                        </li>
+                        <li class="tm-nav-item">
+                            <a href="#contact" class="tm-nav-link">
+                                <!-- <span class="tm-nav-text tm-mb-1">.04</span> -->
+                                <img src="../../assets/icons/more.png" alt="">
+                                <span class="tm-nav-text tm-nav-item-menu">More</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <section class="tm-mb-1" id="about">
+            <div class="tm-row tm-about-row">
+                <div class="tm-section-1-l">
+                <div class="task-area">
                             <?php
                                 if($tasks == null || $tasks == ""){
                                     ?>
@@ -68,7 +86,7 @@
                                             <p class="text-center">No task for today . Do you want to add new task?</p><br>
                                         </div>
                                         <div class="content-body-">
-                                            <img alt="task" class="task-bgimage" src="../../assets/images/task-1.jpg"> 
+                                            <!-- <img alt="task" class="task-bgimage" src="../../assets/img/task-1.jpg">  -->
                                         </div>
                                         <a class="bubbly-button" id="modal-task" style="text-decoration:none" href="#openModal">Add task</a>
                                     </div>
@@ -81,24 +99,23 @@
                                             <tr>
                                                 <th>Tâches</th>
                                                 <th id="state" class="state">Statut</th>
-                                                <a href="#openModal" style="float:right; margin-left:30px">Add </a>
                                             </tr>
                                             <?php
                                                     foreach($tasks as $task){
                                                     ?>
                                                     <tr>
-                                                        <td class="row-data task"><?php echo $task['contenu']?></td>
+                                                        <td class="row-data task"><?php echo $task['content']?></td>
                                                         <td class="row-data state">
                                                             <div class="state-content">
                                                                 <?php
-                                                                if( $task['statut'] === 'N'){
+                                                                if( $task['state'] === 'N'){
                                                                     ?>
                                                                     <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross checked-cross">✖</a>
                                                                     <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading">⌛</a>
                                                                     <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=O' class="checking tick">✔</a>
                                                                 <?php
                                                                 } 
-                                                                elseif($task['statut']=== 'EC'){
+                                                                elseif($task['state']=== 'EC'){
                                                                     ?>
                                                                     <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross">✖</a>
                                                                     <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading checked-ec">✿</a>
@@ -124,33 +141,25 @@
                                 }
                                 ?>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card-trans-footer">
-                    </div>
                 </div>
+                <article class="tm-section-pad20-r tm-bg-color-white">
+                    <h2 class="tm-mb-2 tm-title-color text-center">To-do List</h2>
+                    <div class="flex-direction">
+                        <form class="addTodo">
+                            <input type="text" id="new-todo" class="input todo" name="todo" placeholder="What's need to be done">
+                            <!-- <button class="submit">Add <span>+</span></button> -->
+                        </form>
+                    </div>
+                    <div id="todo-container">
+                        <ul class='todo-list' id="todo-list">
+                        
+                        </ul>
+                    </div>
+                </article>
             </div>
-        </div>
-    </div>
+        </section>
+    </div> <!-- .container -->
+    <script src="../../assets/js/xhr.js"></script>
+    <script src="../../assets/js/index.js"></script>
 </body>
-<script>
-    const modal= document.querySelector('.modal');
-    const container= document.querySelector('.container');
-    let dateCurrent= new Date();
-    document.getElementById('modal-task').addEventListener('click', function(){
-        document.querySelector("body").style.overflow = 'hidden';
-    });
-    document.querySelector('.close').addEventListener('click'; function(){
-        document.querySelector("body").style.overflow = 'visible';
-    });
-
-
-    
-</script>
-<script src="../../assets/js/xhr.js"></script>
-<script src="../../assets/js/modal.js"></script>
-<script src="../../assets/js/default.js"></script>
-<script src="../../assets/js/index.js"></script>
-<script src="../../assets/js/utils.js"></script>
 </html>
-

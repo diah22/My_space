@@ -1,103 +1,49 @@
-const xhr= getXMLHttpRequest();
-const listI= document.querySelector('.list-item');
-let todoItem = {
-    items: [], //tableau contenant all items
-    user:0,
-    addItem: function(item){
-      this.items.push(item);
-      return this;
-    },
-    deleteItem: function(item){
-        delete this.items[item]; //function defined in object for deleting element in object
+const tasks= JSON.parse(localStorage.getItem('todo')) || [];
+const addTodo= document.querySelector('.addTodo');
+const newTodo= document.getElementById('new-todo');
+
+function addTodoListItem(){
+    const newTodoItem= document.getElementById('new-todo').value;
+    const todoItem= {
+        newTodoItem,
+        delete:false
     }
-  }
+    tasks.push(todoItem);
+    localStorage.setItem('todo', JSON.stringify(tasks));
+    displayAllTodo();
+}
 
-  
-let arrayItem; 
-const taskC= document.querySelector('.task-area');
-console.log(taskC);
-const ul= document.querySelector('.list-item');
-ul.addEventListener('click', function(e){
-  let target= e.target;
-  if(target.tagName.toUpperCase()=="LI"){
-    target.parentNode.removeChild(target);
-  }
-});
+function displayAllTodo(){
+    let ulelement= document.getElementById('todo-list');
+    ulelement.innerHTML = ``;
+    console.log(tasks);
+    tasks.map(task => {
+        let input= document.createElement('input'); //create first input 
+        input.className='toggle'; //provide class name to the input created above
+        input.type = 'checkbox'; //then set input type to checkbox
 
-const lists= document.querySelectorAll('li');
+        let label= document.createElement('label');
+        // label.textContent = todo;
 
-lists.forEach(list=>{
-  list.addEventListener('click', function(){
-    console.log(lists);
-  })
-})
+        let deleteLink= document.createElement('button');
+        deleteLink.className='destroy';
 
+        let divForTodo= document.createElement('div');
+        divForTodo.appendChild(input);
+        divForTodo.appendChild(label);
+        divForTodo.appendChild(deleteLink);
 
-function addSingleTodo(){
-    const li= document.createElement('li');
-    const item= document.getElementById('item').value;
-    console.log(todoItem.items);
-    if(todoItem.items === ""){
-      console.log('vide');
-      document.getElementById('submitTodo').disabled= true;
-    }
-    else{
-      document.getElementById('submitTodo').disabled= false;
-    }
-  
-    todoItem.addItem(item);
-    arrayItem= todoItem.items;
-    arrayItem.forEach(array=>{
-        li.innerHTML= `<span class="task-tick"> ✔ </span> ${array} `;
-        listI.appendChild(li);
+        let li= document.createElement('li');
+        li.appendChild(divForTodo);
+        ulelement.appendChild(li);
     })
-
-    document.getElementById('item').value="";
 }
-
-
-function addItem(){
-  const user= document.getElementById('id_user').value;
-  todoItem.user= user;
-	xhr.onreadystatechange= function(){
-		if(xhr.readyState==4 &&(xhr.status==200 || xhr.status==0)){
-      //alert(xhr.responseText);
-      
-      window.location.assign('../../View/Task/index.php?userid='+user);
-		}
-	};
-  todo= JSON.stringify(todoItem);
-	xhr.open("GET", "../../Controller/TaskController/addTodo.php?todo="+ todo, true);
-	xhr.send(null);
+function detectKeyPress(event){
+    if(event.key === "Enter"){
+        addTodoListItem();
+        event.preventDefault();
+    }
 }
-
-function searchtask(val){
-  const sdate= val;
-  xhr.onreadystatechange= function(){
-		if(xhr.readyState==4 &&(xhr.status==200 || xhr.status==0)){
-      renderTask(xhr.responseText);
-		}
-	};
-	xhr.open("GET", "../../Controller/TaskController/getTask.php?date="+ sdate, true);
-	xhr.send(null);
-}
-
-function renderTask(data){
-  console.log(data);
-  taskC.innerHTML= data;
-}
-
-function btnFlower(){
-  this.style.color= '#f99e4e';
-  this.style.textShadow= '0px 0px 6px #f99e4e';
-}
-
-
-const todoButton= document.getElementById('submitTodo');
-todoButton.addEventListener('click', addItem);
-
-const btnFlow= document.querySelector('.flower');
-
-// btnFlow.addEventListener('click', btnFlower);
-
-/** --------------------------------------------- PROJECT -------------------------------------------------------------- */
+newTodo.addEventListener('keypress', function(e){
+    detectKeyPress(e);
+});
