@@ -1,0 +1,5 @@
+ - add param to href
+	Using Js:
+	    * use data-id to add the variable in session
+	    * then check the data-id related to the link 
+	    * use window.location and pass the data-id 
