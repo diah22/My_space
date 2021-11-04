@@ -38,7 +38,7 @@
             //      Header('Location:../../View/Task/home.php?userid='. $this->user_id) :
             //          Header('Location:../../index.php?auth-error='.$not_auth_json);
             $this->is_authentified ? 
-                 Header('Location:../../View/Utils/dashboard.php'):
+                 Header('Location:../../View/Utils/dashboard.php?userid='. $this->user_id):
                  Header('Location:../../index.php')
                  ;
         }

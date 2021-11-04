@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once('../../Controller/TaskController/taskController.php');
     include_once('../../Models/Transaction/taskTransaction.php');
     $cdate= date("Y-m-d");
@@ -36,7 +37,7 @@ https://templatemo.com/tm-544-comparto
                 <nav class="tm-nav" id="tm-nav">
                     <ul>
                         <li class="tm-nav-item">
-                            <a href="../Utils/dashboard.php" class="tm-nav-link">
+                            <a href="../Utils/dashboard.php?userid=<?php $_SESSION['user'] ?>" class="tm-nav-link">
                                 <!-- <span class="tm-mb-1"></span> -->
                                 <img src="../../assets/icons/time.png">
                                 <span class="tm-nav-item-menu">Dashboard</span>
@@ -57,7 +58,7 @@ https://templatemo.com/tm-544-comparto
                             </a>
                         </li>
                         <li class="tm-nav-item">
-                            <a href="#gallery" class="tm-nav-link">
+                            <a href="../Event/index.php" class="tm-nav-link">
                                 <!-- <span class="tm-mb-1">.03</span> -->
                                 <img src="../../assets/icons/event.png" alt="">
                                 <span class="tm-nav-item-menu">Event</span>
