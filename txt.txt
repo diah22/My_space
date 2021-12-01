@@ -2,4 +2,22 @@
 	Using Js:
 	    * use data-id to add the variable in session
 	    * then check the data-id related to the link 
-	    * use window.location and pass the data-id 
+	    * use window.location and pass the data-id
+
+how to retrieve data value in js
+	let value= element.dataset.[name_of_data] 
+	eg: 	if you have an element <div data-id="1">
+		let value= element.dataset['id']
+
+task:
+	< tableau affiche tache
+	enregistrement tache
+	search task
+
+project
+	enregistrement projet
+	affichage projet	
+
+event
+	< enregistrement evenement
+	affichage evenement (pagination)

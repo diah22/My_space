@@ -10,9 +10,9 @@ class TaskTransaction
 
     public function addTask(Task $task){
         $req= $this->_db->prepare('INSERT INTO task(content, deadline, state, user) VALUES (:contenu, :datel,:statut, :user)');
-        $req->execute(array('contenu' => $task->getContenu(),
+        $req->execute(array('contenu' => $task->getContent(),
                                 'datel' => $task->getDate(),
-                                'statut' => $task->getStatut(),
+                                'statut' => $task->getState(),
                                 'user' => $task->getUser())) or die(print_r($req->errorInfo(), true)) ;
     }
 

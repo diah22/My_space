@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="../../assets/css/index.css" rel="stylesheet" />
     <link href="../../assets/css/default.css" rel="stylesheet" />
+    <link href="../../assets/css/navbar.css" rel="stylesheet" />
     <title>Task</title>
 <!--
 
@@ -25,49 +26,73 @@ https://templatemo.com/tm-544-comparto
 <body>
     <div class="container-fluid">
         <div class="tm-site-header tm-mb-1">
-            <div class="tm-site-name-container tm-bg-linear">
-                <h1 class="tm-text-white">MySpace</h1>
+            <?php include_once "navbar.php" ?>
+            <div class="navbar-item-current">
+            <div class="navbar-box">
+                <div class="navbar-menu">
+                <a id="dashboard" href="" data-user=<?php $_SESSION['user'] ?>>
+                <div class="menu-pic">
+                    <img alt="dashboard" src="../../assets/icons/strategy.png">
+                </div>
+                <div class="menu-name">
+                    Dashboard
+                </div>
+                </a>
+                </div>
             </div>
-            <div class="tm-nav-container tm-bg-color-1">
-                <nav class="tm-nav" id="tm-nav">
-                    <ul>
-                        <li class="tm-nav-item current">
-                            <a href="#" class="tm-nav-link">
-                                <!-- <span class="tm-mb-1"></span> -->
-                                <img src="../../assets/icons/time.png">
-                                <span class="tm-nav-item-menu">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="tm-nav-item">
-                            <a href="../Task/index.php" class="tm-nav-link">
-                                <!-- <span class="tm-mb-1">.02</span> -->
-                                <img src="../../assets/icons/time.png" alt="">
-                                <span class="tm-nav-item-menu">Task</span>
-                            </a>
-                        </li>
-                        <li class="tm-nav-item">
-                            <a href="#services" class="tm-nav-link">
-                                <!-- <span class="tm-mb-1">.02</span> -->
-                                <img src="../../assets/icons/event.png" alt="">
-                                <span class="tm-nav-item-menu">Project</span>
-                            </a>
-                        </li>
-                        <li class="tm-nav-item">
-                            <a href="#gallery" class="tm-nav-link">
-                                <!-- <span class="tm-mb-1">.03</span> -->
-                                <img src="../../assets/icons/event.png" alt="">
-                                <span class="tm-nav-item-menu">Event</span>
-                            </a>
-                        </li>
-                        <li class="tm-nav-item">
-                            <a href="#contact" class="tm-nav-link">
-                                <!-- <span class="tm-nav-text tm-mb-1">.04</span> -->
-                                <img src="../../assets/icons/more.png" alt="">
-                                <span class="tm-nav-text tm-nav-item-menu">More</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+            </div>
+         
+            <div class="navbar-item">
+              <div class="navbar-box">
+                  <div class="navbar-menu">
+                    <a href="../Task/index.php">
+                      <div class="menu-pic">
+                        <img alt="task" src="../../assets/icons/time.png">
+                      </div>
+                      <div class="menu-name">
+                        Task
+                      </div>
+                    </a>
+                  </div>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <div class="navbar-box">
+                  <div class="navbar-menu">
+                    <a href="../Project/index.php">
+                      <div class="menu-pic">
+                        <img alt="project" src="../../assets/icons/project.png">
+                      </div>
+                      <div class="menu-name">
+                        Project
+                      </div>
+                    </a>
+                  </div>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <div class="navbar-box">
+                  <div class="navbar-menu">
+                    <a href="../Event/index.php">
+                      <div class="menu-pic">
+                        <img alt="event" src="../../assets/icons/event.png">
+                      </div>
+                      <div class="menu-name">
+                        Event
+                      </div>
+                    </a>
+                  </div>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <div class="navbar-box">
+                  <div class="navbar-menu">
+                  <div class="menu-pic">
+                        <img alt="an image here">
+                    </div>
+                    <a href="#link">More</a>
+                  </div>
+              </div>
             </div>
         </div>
         <section class="tm-mb-1" id="about">
@@ -157,7 +182,6 @@ https://templatemo.com/tm-544-comparto
             - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
         </footer>
     </div> <!-- .container -->
-    <script>
-    </script>
+    <script src="../../assets/common.js"></script>
 </body>
 </html>

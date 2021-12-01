@@ -17,7 +17,7 @@ Text Color: #666
 
 */
 :root{
-    --header: 125px;
+    --header: 160px;
   }
   
   *,
@@ -34,8 +34,9 @@ Text Color: #666
   
   body {
     font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     overflow-x: hidden;
+    overflow-y: auto;
     margin: 0;
   }
   
@@ -75,18 +76,20 @@ Text Color: #666
   .tm-bg-color-7 { background-color: #DDD; }
   .tm-bg-color-8 { background-color: #EDEEEF; } /* Nav background */
   .tm-bg-linear {background-image: linear-gradient(to right,#9bb3be  , #30bda6 )};
-  .tm-bg-color-white { background-color: white; }
+  .tm-bg-color-white { background-color: #fff; }
   .tm-text-color-1 { color: #666; }
   .tm-text-color-2 { color: #333; }
   .tm-text-white { color: #fff; }
   .text-center { text-align: center; }
   
   .tm-site-header {
+    background-color: #feffffdc;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
       height:var(--header);
+      border-bottom: 2px solid #edf1f3;
   }
   
   .tm-site-name-container {
@@ -228,6 +231,7 @@ Text Color: #666
   section#about{
     padding-right: 20px;
     padding-left: 20px;
+    margin-top: 50px;
   }
   
   .tm-row { display: flex; }
@@ -525,16 +529,6 @@ Text Color: #666
 .todo-list input {
     display: none;
 }
-  
-/* .todo-list input + label:before {
-    content: "⬜️";
-    margin-right: 10px;
-}
-  
-.todo-list input:checked + label:before {
-    content: "🌮";
-  } */
-
 
   #todo-list li .toggle {
     text-align: center;
@@ -552,15 +546,19 @@ Text Color: #666
     -o-appearance: none;
     appearance: none;
   }
-  
+
+  .todo-buttons{
+    margin-top: 20px;
+  }
+/*   
   #todo-list li .toggle:after {
     content: '✔';
-    line-height: 43px; /* 40 + a couple of pixels visual adjustment */
+    line-height: 43px; 
     font-size: 20px;
     color: #d9d9d9;
     text-shadow: 0 -1px 0 #bfbfbf;
   }
-  
+   */
   #todo-list li .toggle:checked:after {
     color: #85ada7;
     text-shadow: 0 1px 0 #669991;
@@ -570,8 +568,7 @@ Text Color: #666
 
   #todo-list li label {
     word-break: break-word;
-    padding: 15px;
-    margin-left: 45px;
+    margin-left: 20px;
     display: block;
     line-height: 1.2;
     -webkit-transition: color 0.4s;
@@ -587,22 +584,38 @@ Text Color: #666
   }
   
   #todo-list li .destroy {
-    display: none;
-    position: absolute;
+    /* display: none; */
+    /* position: absolute;
     top: 0;
     right: 10px;
-    bottom: 0;
-    width: 40px;
-    height: 40px;
+    bottom: 0; */
+    width: 35px;
+    height: 35px;
     margin: auto 0;
-    font-size: 22px;
+    font-size: 20px;
     color: #a88a8a;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s;
+    background-color: #fff;
+    border: none;
   }
+  #todo-list .list-item label{
+    display: inline-block;
+    margin-top: 15px;
+  }
+  
+  #todo-list .list-item button{
+    display: inline-block;
+
+  }
+  #todo-list .list-item{
+    display: contents;
+
+  }
+
   
   #todo-list li .destroy:hover {
     text-shadow: 0 0 1px #000, 0 0 10px rgba(199, 107, 107, 0.8);
@@ -620,11 +633,33 @@ Text Color: #666
   #todo-list li:hover .destroy {
     display: block;
   }
+
+  .content-body.no-task {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content-body-image > img.task-bgimage {
+  width: 300px;
+  height: 285px;
+}
   
+form.addTodo{
+  width: 100%;
+}
+
+.clear-disabled{
+  background-color: #f76060a1;
+  border: none;
+}
+
+.save-disabled{
+  background-color: #f3b136c9;
+  border: none;
+}
   /********************************** EVENT ************************************/
-  .event-content{
-    margin: 2%;
-  }
+  
   #show-all-event{
     background-color: #fff;
     padding: 20px 0;
@@ -741,7 +776,29 @@ Text Color: #666
     display: flex;
     justify-content: space-around;
   }
+  
+  h2.tm-mb-2.event-title {
+    background-color: #f7256b;
+    padding: 10px 5px;
+    color: #fff;
+    margin:0 20px 20px 20px;
+  }
 
+  .e-container {
+    padding: 5px;
+    background-color: rgba(30, 39, 51, 0.2);
+    margin: 0 20px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #000;
+    height: 50px;
+}
+  .e-row-one{
+    display: flex;
+    justify-content: space-between;
+  }
   @media(max-width: 1200px){
     .modalDialog{
       padding: 20px;
