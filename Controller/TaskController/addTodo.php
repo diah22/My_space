@@ -21,7 +21,7 @@
                $default_stat= 'N';
                
                $user= $todoItem->user;
-               $items= $todoItem->items;
+               $items= $todoItem->item;
                foreach($items as $item){
                    $task->setContent($item);
                    $task->setDate($date);
@@ -30,9 +30,9 @@
                    $taskT->addTask($task);
 
                }
-               Header('Location:../../View/Task/index.php');
+
             }
-           
+            return $user;
         }
 
     }

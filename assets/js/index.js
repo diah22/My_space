@@ -66,9 +66,8 @@ function addItem(){
     const user= dash.dataset['user'];
     todoItem.user= user;
     xhr.onreadystatechange= function(){
-          if(xhr.readyState==4 &&(xhr.status==200 || xhr.status==0)){
-        //alert(xhr.responseText);
-        
+        if(xhr.readyState==4 &&(xhr.status==200 || xhr.status==0)){
+            alert(xhr.responseText);
            window.location.assign('../../View/Task/index.php?userid='+user);
         }
       };

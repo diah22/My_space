@@ -105,7 +105,47 @@ https://templatemo.com/tm-544-comparto
             <div class="tm-row tm-about-row">
                 <div class="tm-section-1-l">
                     <div class="task-area">
-                
+                      <table class="table">
+                        <tr>
+                          <th>Tâches</th>
+                          <th id="state" class="state">Status</th>
+                        </tr>
+                        <?php
+                          foreach($tasks as $task){
+                          ?>
+                        <tr>
+                          <td class="row-data task"><?php echo $task['content']?></td>
+                          <td class="row-data state">
+                            <div class="state-content">
+                            <?php
+                              if( $task['state'] === 'N'){
+                            ?>
+                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross checked-cross">✖</a>
+                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading">⋯</a>
+                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=O' class="checking tick">✔</a>
+                              <?php
+                              } 
+                              elseif($task['state']=== 'EC'){
+                              ?>
+                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross">✖</a>
+                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading checked-ec">⋯</a>
+                                <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=O' class="checking tick">✔</a>
+                                <?php
+                                } else{
+                                ?>
+                                  <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=N' class="checking cross">✖</a>
+                                  <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=EC' class="checking loading">⋯</a>
+                                  <a href='../../Controller/TaskController/updateTask.php?id=<?php echo $task['id']?>&act=O' class="checking tick checked-tick">✔</a>
+                                  <?php
+                                    }
+                                  ?>   
+                              </div>
+                            </td>
+                          </tr>
+                          <?php
+                            }
+                          ?>
+                      </table>
                     </div>
                 </div>
                 <article class="tm-section-pad20-r tm-bg-color-white">

@@ -1,7 +1,7 @@
 <?php
    session_start();
-   $userId= 2;
-//    $userId= $_GET['userid'];
+    //    $userId= 2;
+   $userId= $_GET['userid'];
    $_SESSION['user'] = $userId;
 ?>
 <!DOCTYPE html>

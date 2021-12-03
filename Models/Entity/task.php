@@ -7,7 +7,7 @@ class Task
     private $_date;
 
     public function getContent(){
-        return $this->_contenu;
+        return $this->_content;
     }
 
     public function setContent($contenu){
