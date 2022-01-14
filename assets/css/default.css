@@ -122,7 +122,6 @@
   padding: 15px 40px;
   font-size: 1.1rem;
   border: none;
-  background-color: #CC9999;
   color: white;
 }
 
@@ -141,6 +140,7 @@
 }
 
 .btn-rounded {
+  border: none;
 	border-radius: 20px;
 	color: #FFFFFF;
 	font-size: 12px;
@@ -149,6 +149,9 @@
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+}
+.bg-dark{
+  background-color: rgba(0,0,0,0.4);
 }
 
 .bg-yellow{
@@ -178,6 +181,12 @@
 .flex-direction{
   display: flex;
 }
+.tm-float-left{
+  float: left;
+}
+.tm-float-right{
+  float: right;
+}
 
 /* table */
 th{
@@ -190,4 +199,5 @@ td, th {
   padding: 0.5rem;
   text-align: left;
 } 
+/* card */
 

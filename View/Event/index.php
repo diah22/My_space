@@ -43,21 +43,6 @@ https://templatemo.com/tm-544-comparto
         <div class="tm-site-header tm-mb-1">
             <?php include_once "../Utils/navbar.php" ?>
             <div class="navbar-item">
-            <div class="navbar-box">
-                <div class="navbar-menu">
-                <a id="dashboard" href="" data-user=<?php $_SESSION['user'] ?>>
-                <div class="menu-pic">
-                    <img alt="dashboard" src="../../assets/icons/strategy.png">
-                </div>
-                <div class="menu-name">
-                    Dashboard
-                </div>
-                </a>
-                </div>
-            </div>
-            </div>
-         
-            <div class="navbar-item">
               <div class="navbar-box">
                   <div class="navbar-menu">
                     <a href="../Task/index.php">

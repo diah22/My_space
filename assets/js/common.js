@@ -2,8 +2,8 @@
 const dash= document.getElementById('dashboard');
 function loadDashboard(){
   const value= dash.dataset['user'];
-  alert(value);
-  window.location.assign("../../View/Utils/dashboard.php?userid="+value);
+  // alert(value);
+  // window.location.assign("../../View/Utils/dashboard.php");
 }
 
 const items= document.querySelectorAll('.navbar-item');

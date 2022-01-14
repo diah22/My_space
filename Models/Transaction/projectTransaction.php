@@ -9,16 +9,11 @@ class ProjectTransaction
     }
 
     public function addProject(Project $project){
-        // $req->execute(array('contenu' => $Project->getContenu(),
-        //                     'statut' => $Project->getStatut(),
-        //                     'user' => $Project->getUser(),
-        //                     'datelim' => $Project->getDate())) or die(print_r($this->_db->errorInfo()));
-
-        $req= $this->_db->prepare('INSERT INTO project(title, deadline,description, state, user) VALUES (:nom, :datel,:descri, :statut, :user)');
+        $req= $this->_db->prepare('INSERT INTO project(title, deadline,description, status, id_user) VALUES (:nom, :datel,:descri, :statut, :user)');
         $req->execute(array('nom' => $project->getTitle(),
-                                'datel' => $project->getDate(),
+                                'datel' => $project->getDeadline(),
                                 'descri' => $project->getDescri(),
-                                'statut' => $project->getState(),
+                                'statut' => $project->getStatus(),
                                 'user' => $project->getUser())) or die(print_r($req->errorInfo(), true)) ;
     }
 

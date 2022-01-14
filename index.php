@@ -46,7 +46,7 @@
                 <input type="email" class="input" name="email" placeholder="Email" />
                 <input type="password" class="input" name="password" placeholder="Password" />
                 <input type="password" class="input" name="confpass" placeholder="Confirm Password" />
-                <button>Sign Up</button>
+                <button class="btn-rounded bg-yellow">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -61,7 +61,7 @@
                 <input class="input" type="text" placeholder="Username" name="username"/>
                 <input class="input" type="password" placeholder="Password" name="password"/>
                 <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <button class="btn-rounded bg-yellow">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -69,12 +69,12 @@
                 <div class="overlay-panel overlay-left">
                     <h1>Welcome to MySpace!</h1>
                     <p>Login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
+                    <button class="btn-rounded bg-dark" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>You don't have any account ? </h1>
                     <p>Let'create a new account</a></p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <button class="btn-rounded bg-dark" id="signUp">Sign Up</button>
                 </div>
             </div>
         </div>

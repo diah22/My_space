@@ -225,7 +225,7 @@ Text Color: #666
     margin-top: 15px;
     /* border-style:dashed ; */
     border: 1px dashed rgb(153, 148, 148);
-    min-height: 350px;
+    height: 350px;
   }
   
   section#about{
@@ -825,3 +825,69 @@ form.addTodo{
     }
   }
 
+  /*************************************** PROJECT ***********************************************/
+.project-section{
+  margin-left: 30px;
+  /* padding: 20px; */
+}
+
+.project-section .add-project form{
+  padding: 30px;
+}
+
+.tm-show-project{
+  display: flex;
+  justify-content: space-around;
+}
+
+.slide-1,
+.slide-2{
+  min-height: 550px;
+}
+
+.main-slide{
+  overflow: hidden;
+  position: relative;
+}
+
+div.slide-1{
+  width: 100%;
+  position: absolute;
+  z-index:2;
+  background-color: #fff;
+  transition: all 2s ease-out;
+}
+
+div.slide-2{
+  width: 100%;
+  z-index:1;
+  position: relative;
+  background-color: #fff;
+  transform: translateY(-100%);
+  transition: all 2s ease-out;
+}
+
+.input-pr{
+  height: 30px;
+  width: 100px;
+}
+
+.tm-show-project > input{
+  width: 300px;
+}
+
+div.all-project{
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.all-project .card{
+  width: 29%;
+  height: 330px;
+}
+
+.card.card-project {
+  display: inline-block;
+  margin: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; 
+}
